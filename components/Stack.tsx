@@ -1,3 +1,4 @@
+import { ShortcutProps, defaultShortcuts } from "@/styles/shortcuts";
 import { PropsWithChildren } from "react";
 import { View, ViewProps } from "react-native";
 
@@ -28,5 +29,22 @@ export function Stack({
   style,
   ...restProps
 }: StackProps) {
-  return <View>{children}</View>;
+  return (
+    <View
+      style={[
+        defaultShortcuts(restProps),
+        {
+          flex,
+          flexDirection: direction,
+          gap,
+          alignItems,
+          justifyContent,
+        },
+        style,
+      ]}
+      {...restProps}
+    >
+      {children}
+    </View>
+  );
 }
