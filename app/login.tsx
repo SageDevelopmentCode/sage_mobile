@@ -1,11 +1,17 @@
 import { HStack } from "@/components/HStack";
 import { VStack } from "@/components/VStack";
+import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Text } from "@/components/text";
+import { useState } from "react";
 import { KeyboardAvoidingView, ScrollView } from "react-native";
 
 export default function Login() {
+  const [authMode, setAuthMode] = useState<"login" | "register">("login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flex: 1 }}>
@@ -27,8 +33,36 @@ export default function Login() {
               <Text ml={10} fontSize={14} color="gray">
                 Email
               </Text>
-              <Input />
+              <Input
+                value={email}
+                onChange={() => setEmail}
+                placeholder="Email"
+                placeholderTextColor="darkgray"
+                autoCapitalize="none"
+                autoCorrect={false}
+                h={48}
+                p={14}
+              />
             </VStack>
+            <VStack gap={5}>
+              <Text ml={10} fontSize={14} color="gray">
+                Password
+              </Text>
+              <Input
+                secureTextEntry
+                value={password}
+                onChange={() => setPassword}
+                placeholder="Password"
+                placeholderTextColor="darkgray"
+                autoCapitalize="none"
+                autoCorrect={false}
+                h={48}
+                p={14}
+              />
+            </VStack>
+            <Button isLoading={false} onPress={() => {}}>
+              {authMode === "login" ? "Login" : "Register"}
+            </Button>
           </VStack>
         </VStack>
       </ScrollView>
