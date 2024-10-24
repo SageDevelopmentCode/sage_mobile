@@ -1,3 +1,4 @@
+import { Divider } from "@/components/Divider";
 import { HStack } from "@/components/HStack";
 import { VStack } from "@/components/VStack";
 import { Button } from "@/components/button";
@@ -64,6 +65,8 @@ export default function Login() {
               {authMode === "login" ? "Login" : "Register"}
             </Button>
           </VStack>
+
+          <Divider w={"90%"} />
         </VStack>
       </ScrollView>
     </KeyboardAvoidingView>
