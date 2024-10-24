@@ -1,12 +1,12 @@
 import { Divider } from "@/components/Divider";
 import { HStack } from "@/components/HStack";
 import { VStack } from "@/components/VStack";
-import { Button } from "@/components/button";
+import { Button } from "@/components/Button";
 import { Input } from "@/components/input";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import { Text } from "@/components/text";
 import { useState } from "react";
 import { KeyboardAvoidingView, ScrollView } from "react-native";
+import { Text } from "@/components/Text";
 
 export default function Login() {
   const [authMode, setAuthMode] = useState<"login" | "register">("login");

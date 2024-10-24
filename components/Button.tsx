@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
 } from "react-native";
-import { Text } from "./text";
+import { Text } from "./Text";
 
 interface ButtonProps extends ShortcutProps, TouchableOpacityProps {
   variant?: "contained" | "outlined" | "ghost";
