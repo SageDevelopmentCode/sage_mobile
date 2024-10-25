@@ -13,6 +13,10 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  function onToggleAuthMode() {
+    setAuthMode(authMode === "login" ? "register" : "login");
+  }
+
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flex: 1 }}>
@@ -36,7 +40,7 @@ export default function Login() {
               </Text>
               <Input
                 value={email}
-                onChange={() => setEmail}
+                onChangeText={setEmail}
                 placeholder="Email"
                 placeholderTextColor="darkgray"
                 autoCapitalize="none"
@@ -52,7 +56,7 @@ export default function Login() {
               <Input
                 secureTextEntry
                 value={password}
-                onChange={() => setPassword}
+                onChangeText={setPassword}
                 placeholder="Password"
                 placeholderTextColor="darkgray"
                 autoCapitalize="none"
@@ -67,6 +71,10 @@ export default function Login() {
           </VStack>
 
           <Divider w={"90%"} />
+
+          <Text onPress={onToggleAuthMode} fontSize={16} underline>
+            {authMode === "login" ? "Register new account" : "Login to account"}
+          </Text>
         </VStack>
       </ScrollView>
     </KeyboardAvoidingView>
