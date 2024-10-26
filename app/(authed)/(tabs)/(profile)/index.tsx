@@ -1,14 +1,26 @@
 import { HStack } from "@/components/HStack";
 import { Text } from "@/components/Text";
 import { VStack } from "@/components/VStack";
+import { useAuth } from "@/context/AuthContext";
 import { characterService } from "@/services/character";
 import { Character } from "@/types/character";
+import { Href, router } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import { Alert, FlatList, Touchable, TouchableOpacity } from "react-native";
 
 export default function ProfileScreen() {
+  const { user } = useAuth();
+
   const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState<Character[]>([]);
+
+  function onGoToCharacterPage(id: number) {
+    // if (user?.role === UserRole.Parent))
+
+    router.push(
+      `/(profile)/characters/${id}` as Href<`/(profile)/characters/${number}`>
+    );
+  }
 
   const fetchCharacters = useCallback(async () => {
     try {
@@ -47,7 +59,7 @@ export default function ProfileScreen() {
             style={{ backgroundColor: "white", borderRadius: 20 }}
             key={character.id}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => onGoToCharacterPage(character.id)}>
               <HStack alignItems="center" justifyContent="center">
                 <HStack alignItems="center">
                   <Text fontSize={18} bold>
