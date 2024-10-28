@@ -4,12 +4,16 @@ import { VStack } from "@/components/VStack";
 import { useAuth } from "@/context/AuthContext";
 import { characterService } from "@/services/character";
 import { Character } from "@/types/character";
-import { Href, router } from "expo-router";
+import { Href, router, useNavigation } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import { Alert, FlatList, Touchable, TouchableOpacity } from "react-native";
 
 export default function ProfileScreen() {
   const { user } = useAuth();
+
+  console.log("user: ", user);
+
+  const navigation = useNavigation();
 
   const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -37,7 +41,11 @@ export default function ProfileScreen() {
 
   useEffect(() => {
     fetchCharacters();
-  }, [fetchCharacters]);
+
+    navigation.setOptions({
+      headerTitle: "Characters",
+    });
+  }, [fetchCharacters, navigation]);
 
   return (
     <VStack flex={1} p={20} pb={0} gap={20}>
@@ -66,6 +74,7 @@ export default function ProfileScreen() {
                     {character.name}
                   </Text>
                 </HStack>
+                {/* TODO: Can check here if the user has that character, and it can be unlocked */}
               </HStack>
             </TouchableOpacity>
           </VStack>
