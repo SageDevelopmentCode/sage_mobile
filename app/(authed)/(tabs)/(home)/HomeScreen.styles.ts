@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   character: {
     position: "absolute",
-    bottom: 40,
+    bottom: 150, // Move the character higher above the navButtons
     left: 0,
   },
   characterImage: {
