@@ -8,7 +8,7 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
-import { useRouter } from "expo-router"; // Import useRouter from expo-router
+import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
 import Background from "../../../assets/Background.png"; // Full-sized background image
 import Character from "../../../assets/CharacterImage.png";
 
@@ -16,10 +16,11 @@ export default function HomeScreen() {
   const [characterPosition] = useState(new Animated.Value(0));
   const router = useRouter(); // Use router from expo-router
 
+  const navigation = useNavigation();
+
   useEffect(() => {
-    // Example of deferred navigation to ensure Slot is mounted
-    router.push("/(authed)/(tabs)/(home)");
-  }, [router]);
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);
 
   useEffect(() => {
     const moveCharacter = () => {
@@ -70,7 +71,7 @@ export default function HomeScreen() {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => router.push("/(tabs)/(home)")} // Navigate to Home screen
+          onPress={() => router.push("/(authed)/(home)")} // Navigate to Home screen
         >
           <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>
