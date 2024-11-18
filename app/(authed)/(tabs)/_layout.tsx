@@ -13,6 +13,7 @@ export default function TabLayout() {
       icon: "home",
       options: {
         headerShown: false,
+        tabBarShown: false, // This hides the tab bar
       },
     },
     {
@@ -21,7 +22,8 @@ export default function TabLayout() {
       displayName: "Daily",
       icon: "calendar",
       options: {
-        headerShown: true,
+        headerShown: false,
+        tabBarShown: false, // This hides the tab bar
       },
     },
     {
@@ -30,7 +32,8 @@ export default function TabLayout() {
       displayName: "Profile",
       icon: "scan",
       options: {
-        headerShown: true,
+        headerShown: false,
+        tabBarShown: false, // This hides the tab bar
       },
     },
   ];
@@ -43,19 +46,6 @@ export default function TabLayout() {
           name={tab.name}
           options={{
             ...tab.options,
-            headerTitle: tab.displayName,
-            // href: tab.showFor.includes
-            tabBarLabel: ({ focused }) => (
-              <Text style={{ color: focused ? "black" : "gray", fontSize: 12 }}>
-                {tab.displayName}
-              </Text>
-            ),
-            tabBarIcon: ({ focused }) => (
-              <TabBarIcon
-                name={tab.icon as ComponentProps<typeof Ionicons>["name"]}
-                color={focused ? "black" : "gray" }
-              />
-            ),
           }}
         />
       ))}

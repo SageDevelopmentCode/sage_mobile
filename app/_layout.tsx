@@ -1,4 +1,4 @@
-import { AuthenticationProvider } from "@/context/AuthContext";
+import { AuthenticationProvider, useAuth } from "@/context/AuthContext";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
