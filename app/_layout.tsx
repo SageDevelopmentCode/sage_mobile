@@ -6,7 +6,6 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style="dark" />
-      {/* Authentication Provider */}
       <AuthenticationProvider>
         <Slot />
       </AuthenticationProvider>

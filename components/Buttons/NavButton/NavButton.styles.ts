@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     shadowColor: "#D9C7B4",
     shadowOffset: { width: 0, height: 7 },
     shadowOpacity: 1,
-    shadowRadius: 1,
+    shadowRadius: 0,
     elevation: 4,
     justifyContent: "center",
     alignItems: "center",
