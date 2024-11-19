@@ -12,6 +12,7 @@ import { useNavigation, useRouter } from "expo-router"; // Import useRouter from
 import { styles } from "./HomeScreen.styles"; // Import styles
 import Background from "./assets/Background.png"; // Updated import path
 import Character from "./assets/CharacterImage.png";
+import NavButton from "@/components/Buttons/NavButton/NavButton";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window"); // Screen dimensions
 
@@ -99,7 +100,14 @@ export default function HomeScreen() {
 
       {/* Navigation Buttons */}
       <View style={styles.navButtons}>
-        <TouchableOpacity
+        <NavButton
+          iconName="play"
+          iconSize={24}
+          iconColor="#13A4FF"
+          onPress={() => router.push("/(authed)/(home)")}
+        />
+
+        {/* <TouchableOpacity
           style={styles.button}
           onPress={() => router.push("/(authed)/(tabs)/(daily)")} // Navigate to Daily screen
         >
@@ -116,7 +124,7 @@ export default function HomeScreen() {
           onPress={() => router.push("/(authed)/(home)")} // Navigate to Home screen
         >
           <Text style={styles.buttonText}>Home</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ImageBackground>
   );

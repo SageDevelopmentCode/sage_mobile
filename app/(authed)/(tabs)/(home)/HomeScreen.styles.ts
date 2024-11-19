@@ -25,10 +25,17 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   button: {
-    backgroundColor: "#38A169", // Green color
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 8,
+    width: 85,
+    height: 83,
+    backgroundColor: "#FFF1E1", // Light peach color
+    shadowColor: "#D9C7B4", // Shadow color
+    shadowOffset: { width: 0, height: 7 }, // Shadow offset
+    shadowOpacity: 1, // Fully opaque shadow
+    shadowRadius: 1, // Shadow spread
+    elevation: 4, // Add elevation for Android shadow
+    borderRadius: 20, // Rounded corners
   },
   buttonText: {
     color: "white",
@@ -36,3 +43,5 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+//
