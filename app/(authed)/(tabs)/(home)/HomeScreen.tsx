@@ -7,6 +7,7 @@ import {
   Animated,
   Image,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
 import { styles } from "./HomeScreen.styles"; // Import styles
@@ -25,6 +26,7 @@ export default function HomeScreen() {
   const navigation = useNavigation();
   const [characterPositionX] = useState(new Animated.Value(0));
   const [characterPositionY] = useState(new Animated.Value(0));
+  const [menuVisible, setMenuVisible] = useState(false); // State for submenu visibility
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -101,21 +103,47 @@ export default function HomeScreen() {
         <Image source={Character} style={styles.characterImage} />
       </Animated.View>
 
+      {/* Close Button for Submenu */}
+      {menuVisible && (
+        <TouchableOpacity
+          style={styles.outsideCloseButton}
+          onPress={() => setMenuVisible(false)}
+        >
+          <Text style={styles.outsideCloseButtonText}>✕</Text>
+        </TouchableOpacity>
+      )}
+
+      {/* Background Tint when Menu is Open */}
+      {menuVisible && <View style={styles.overlay} />}
+
+      {/* Submenu */}
+      {menuVisible && (
+        <View style={styles.menu}>
+          <ScrollView contentContainerStyle={styles.menuContent}>
+            <Text style={styles.menuTitle}>Submenu</Text>
+            <Text style={styles.menuItem}>Item 1</Text>
+            <Text style={styles.menuItem}>Item 2</Text>
+            <Text style={styles.menuItem}>Item 3</Text>
+            <Text style={styles.menuItem}>Item 4</Text>
+          </ScrollView>
+        </View>
+      )}
+
       {/* Navigation Buttons */}
       <View style={styles.navButtons}>
-        <NavButton
-          IconLibrary={FontAwesome5}
-          iconName="play"
-          iconSize={40}
-          iconColor="#13A4FF"
-          onPress={() => router.push("/(authed)/(home)")}
-        />
         <NavButton
           IconLibrary={MaterialIcons}
           iconName="checklist"
           iconSize={40}
           iconColor="#AD79EB"
           onPress={() => router.push("/(authed)/(daily)")}
+        />
+        <NavButton
+          IconLibrary={FontAwesome5}
+          iconName="play"
+          iconSize={40}
+          iconColor="#13A4FF"
+          onPress={() => setMenuVisible(!menuVisible)} // Toggle the menu visibility
         />
         <NavButton
           IconLibrary={FontAwesome6}
