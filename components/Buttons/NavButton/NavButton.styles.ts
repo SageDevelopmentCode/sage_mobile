@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 8, // Space between buttons
+    padding: 10,
   },
   iconContainer: {
     justifyContent: "center",
