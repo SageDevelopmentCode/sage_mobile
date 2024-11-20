@@ -1,7 +1,5 @@
 import colors from "@/constants/colors";
 import { StyleSheet } from "react-native";
-import * as Font from "expo-font";
-import { useFonts } from "expo-font";
 
 export const styles = StyleSheet.create({
   heading: {
@@ -16,7 +14,10 @@ export const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 14,
-    fontWeight: "normal",
     color: colors.BlackText,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: colors.WhiteText,
   },
 });

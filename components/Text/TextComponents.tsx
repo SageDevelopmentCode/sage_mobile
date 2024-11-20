@@ -1,6 +1,13 @@
 import React from "react";
-import { Text, TextStyle, StyleSheet, TextProps } from "react-native";
+import { Text, TextStyle, TextProps } from "react-native";
 import { styles } from "./TextComponents.styles";
+import {
+  Nunito_800ExtraBold,
+  Nunito_700Bold,
+  Nunito_900Black,
+} from "@expo-google-fonts/nunito";
+import { Raleway_600SemiBold } from "@expo-google-fonts/raleway";
+import { useFonts } from "expo-font";
 
 interface BaseTextProps extends TextProps {
   style?: TextStyle; // Allow additional styling if needed
@@ -10,12 +17,24 @@ interface BaseTextProps extends TextProps {
 
 // Heading component
 const Heading = ({ style, children, color, ...props }: BaseTextProps) => {
+  const [fontsLoaded] = useFonts({
+    Nunito_900Black,
+    Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <Text
       style={[
         styles.heading,
-        color ? { color } : {}, // Apply color if provided
+        color ? { color } : {},
         style,
+        { fontFamily: "Nunito_900Black" },
       ]}
       {...props}
     >
@@ -26,12 +45,49 @@ const Heading = ({ style, children, color, ...props }: BaseTextProps) => {
 
 // SubHeading component
 const SubHeading = ({ style, children, color, ...props }: BaseTextProps) => {
+  const [fontsLoaded] = useFonts({
+    Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <Text
       style={[
         styles.subheading,
         color ? { color } : {}, // Apply color if provided
+        { fontFamily: "Nunito_800ExtraBold" },
         style,
+      ]}
+      {...props}
+    >
+      {children}
+    </Text>
+  );
+};
+
+const ButtonText = ({ style, children, color, ...props }: BaseTextProps) => {
+  const [fontsLoaded] = useFonts({
+    Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
+  return (
+    <Text
+      style={[
+        styles.buttonText,
+        color ? { color } : {}, // Apply color if provided
+        style,
+        { fontFamily: "Nunito_800ExtraBold" },
       ]}
       {...props}
     >
@@ -42,12 +98,23 @@ const SubHeading = ({ style, children, color, ...props }: BaseTextProps) => {
 
 // Paragraph component
 const Paragraph = ({ style, children, color, ...props }: BaseTextProps) => {
+  const [fontsLoaded] = useFonts({
+    Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <Text
       style={[
         styles.paragraph,
         color ? { color } : {}, // Apply color if provided
         style,
+        { fontFamily: "Raleway_600SemiBold" },
       ]}
       {...props}
     >
@@ -56,4 +123,4 @@ const Paragraph = ({ style, children, color, ...props }: BaseTextProps) => {
   );
 };
 
-export { Heading, SubHeading, Paragraph };
+export { Heading, SubHeading, Paragraph, ButtonText };
