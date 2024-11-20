@@ -104,5 +104,6 @@ export const styles = StyleSheet.create({
     shadowRadius: 0,
     elevation: 4,
     alignItems: "center",
+    marginBottom: 40,
   },
 });

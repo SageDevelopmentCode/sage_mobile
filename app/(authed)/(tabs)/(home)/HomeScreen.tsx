@@ -136,12 +136,62 @@ export default function HomeScreen() {
                   Discovering Faith
                 </Paragraph>
                 <ProgressBar progress={progress} height={40} />
-                <ActionButton
-                  title="Continue"
-                  type="BrightGreen"
-                  onPress={() => console.log("Primary Pressed")}
-                />
               </View>
+              <ActionButton
+                title="Continue"
+                type="BrightGreen"
+                onPress={() => console.log("Primary Pressed")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.subMenuItem,
+                {
+                  backgroundColor: colors.RegularBrown,
+                  shadowColor: colors.RegularBrownBacking,
+                },
+              ]}
+              onPress={() => {}}
+            >
+              <Heading color={colors.WhiteText} style={{ marginBottom: 10 }}>
+                Explorer's Realm
+              </Heading>
+              <Paragraph
+                color={colors.WhiteText}
+                style={{ textAlign: "center" }}
+              >
+                Explore new Characters and Pets
+              </Paragraph>
+              <ActionButton
+                title="Enter"
+                type="LightBrown"
+                onPress={() => console.log("Primary Pressed")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.subMenuItem,
+                {
+                  backgroundColor: colors.PurplePrimary,
+                  shadowColor: colors.PurpleBacking,
+                },
+              ]}
+              onPress={() => {}}
+            >
+              <Heading color={colors.WhiteText} style={{ marginBottom: 10 }}>
+                Spirit Log
+              </Heading>
+              <Paragraph
+                color={colors.WhiteText}
+                style={{ textAlign: "center" }}
+              >
+                Pray with God.
+              </Paragraph>
+              <ActionButton
+                title="Write"
+                type="LightBrown"
+                onPress={() => console.log("Primary Pressed")}
+              />
             </TouchableOpacity>
           </ScrollView>
         </View>
