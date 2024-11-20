@@ -1,5 +1,10 @@
 # Sage
 
+![Main](https://github.com/user-attachments/assets/8ce1ecc2-8a87-499d-bc62-cc5684d19037)
+![Battle](https://github.com/user-attachments/assets/f039eb97-83aa-4606-9aa6-6303c37d7dab)
+
+
+
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
