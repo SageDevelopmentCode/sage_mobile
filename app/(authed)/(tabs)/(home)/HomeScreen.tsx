@@ -13,10 +13,8 @@ import { useNavigation, useRouter } from "expo-router"; // Import useRouter from
 import { styles } from "./HomeScreen.styles"; // Import styles
 import Background from "./assets/Background.png"; // Updated import path
 import Character from "./assets/CharacterImage.png";
-import NavButton from "@/components/Buttons/NavButton/NavButton";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Entypo from "react-native-vector-icons/Entypo";
+import NavigationButtons from "@/features/Navigation/NavigationButtons";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window"); // Screen dimensions
 
@@ -109,7 +107,7 @@ export default function HomeScreen() {
           style={styles.outsideCloseButton}
           onPress={() => setMenuVisible(false)}
         >
-          <Text style={styles.outsideCloseButtonText}>✕</Text>
+          <Entypo name="chevron-down" size={45} color="#ffffff" />
         </TouchableOpacity>
       )}
 
@@ -129,30 +127,10 @@ export default function HomeScreen() {
         </View>
       )}
 
-      {/* Navigation Buttons */}
-      <View style={styles.navButtons}>
-        <NavButton
-          IconLibrary={MaterialIcons}
-          iconName="checklist"
-          iconSize={40}
-          iconColor="#AD79EB"
-          onPress={() => router.push("/(authed)/(daily)")}
-        />
-        <NavButton
-          IconLibrary={FontAwesome5}
-          iconName="play"
-          iconSize={40}
-          iconColor="#13A4FF"
-          onPress={() => setMenuVisible(!menuVisible)} // Toggle the menu visibility
-        />
-        <NavButton
-          IconLibrary={FontAwesome6}
-          iconName="face-smile-beam"
-          iconSize={40}
-          iconColor="#E57C17"
-          onPress={() => router.push("/(authed)/(profile)")}
-        />
-      </View>
+      <NavigationButtons
+        onMenuToggle={() => setMenuVisible(!menuVisible)}
+        router={router}
+      />
     </ImageBackground>
   );
 }

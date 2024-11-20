@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colors from "@/constants/colors";
 
 export const styles = StyleSheet.create({
   background: {
@@ -28,7 +29,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     width: 85,
-    height: 83,
+    height: 85,
     backgroundColor: "#FFF1E1", // Light peach color
     shadowColor: "#D9C7B4", // Shadow color
     shadowOffset: { width: 0, height: 7 }, // Shadow offset
@@ -50,41 +51,15 @@ export const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.5)", // Black tint with some transparency
   },
-  submenuContainer: {
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    height: "80%", // Takes up 4/5 of the screen
-    backgroundColor: "white",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  submenuContent: {
-    flex: 1,
-    padding: 20,
-  },
-  submenuTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  submenuText: {
-    fontSize: 16,
-  },
   menu: {
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: "80%", // Takes up 4/5 of the screen height
-    backgroundColor: "white",
-    padding: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    height: "90%", // Takes up 4/5 of the screen height
+    backgroundColor: colors.SkyBluePrimary,
+    padding: 40,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
     zIndex: 1,
   },
   menuContent: {
@@ -102,10 +77,10 @@ export const styles = StyleSheet.create({
   },
   outsideCloseButton: {
     position: "absolute",
-    top: 20, // Adjust for gap from the top of the screen
-    right: 20, // Adjust for gap from the right edge
+    top: 40, // Adjust the gap from the top of the screen
+    left: "50%", // Center horizontally
+    transform: [{ translateX: -20 }], // Offset to truly center the button (half of the button's width)
     zIndex: 3, // Ensure it is above the overlay and menu
-    backgroundColor: "#FFFFFF",
     borderRadius: 20,
     width: 40,
     height: 40,
@@ -116,11 +91,6 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 5,
-  },
-  outsideCloseButtonText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
   },
 });
 
