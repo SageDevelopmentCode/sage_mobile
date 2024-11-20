@@ -1,12 +1,13 @@
+import colors from "@/constants/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#FFF1E1",
+    backgroundColor: colors.LightBrown,
     width: 80,
     height: 80,
     borderRadius: 20,
-    shadowColor: "#D9C7B4",
+    shadowColor: colors.LightBrownBacking,
     shadowOffset: { width: 0, height: 7 },
     shadowOpacity: 1,
     shadowRadius: 0,

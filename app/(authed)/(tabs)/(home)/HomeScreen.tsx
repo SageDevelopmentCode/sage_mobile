@@ -15,6 +15,8 @@ import Background from "./assets/Background.png"; // Updated import path
 import Character from "./assets/CharacterImage.png";
 import Entypo from "react-native-vector-icons/Entypo";
 import NavigationButtons from "@/features/Navigation/NavigationButtons";
+import { Heading } from "@/components/Text/TextComponents";
+import colors from "@/constants/colors";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window"); // Screen dimensions
 
@@ -118,11 +120,9 @@ export default function HomeScreen() {
       {menuVisible && (
         <View style={styles.menu}>
           <ScrollView contentContainerStyle={styles.menuContent}>
-            <Text style={styles.menuTitle}>Submenu</Text>
-            <Text style={styles.menuItem}>Item 1</Text>
-            <Text style={styles.menuItem}>Item 2</Text>
-            <Text style={styles.menuItem}>Item 3</Text>
-            <Text style={styles.menuItem}>Item 4</Text>
+            <TouchableOpacity style={styles.subMenuItem} onPress={() => {}}>
+              <Heading color={colors.WhiteText}>Playground</Heading>
+            </TouchableOpacity>
           </ScrollView>
         </View>
       )}

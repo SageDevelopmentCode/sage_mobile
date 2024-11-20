@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "90%", // Takes up 4/5 of the screen height
     backgroundColor: colors.SkyBluePrimary,
-    padding: 40,
+    padding: 30,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     zIndex: 1,
@@ -92,6 +92,16 @@ export const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 5,
   },
+  subMenuItem: {
+    width: "100%",
+    padding: 20,
+    backgroundColor: colors.GreenPrimary,
+    borderRadius: 20,
+    shadowColor: colors.GreenBacking,
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
+    alignItems: "center",
+  },
 });
-
-//
