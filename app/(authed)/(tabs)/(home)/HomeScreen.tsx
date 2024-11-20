@@ -18,6 +18,7 @@ import NavigationButtons from "@/features/Navigation/NavigationButtons";
 import { Heading, Paragraph } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window"); // Screen dimensions
 
@@ -135,6 +136,11 @@ export default function HomeScreen() {
                   Discovering Faith
                 </Paragraph>
                 <ProgressBar progress={progress} height={40} />
+                <ActionButton
+                  title="Continue"
+                  type="BrightGreen"
+                  onPress={() => console.log("Primary Pressed")}
+                />
               </View>
             </TouchableOpacity>
           </ScrollView>
