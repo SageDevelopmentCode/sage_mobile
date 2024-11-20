@@ -15,8 +15,9 @@ import Background from "./assets/Background.png"; // Updated import path
 import Character from "./assets/CharacterImage.png";
 import Entypo from "react-native-vector-icons/Entypo";
 import NavigationButtons from "@/features/Navigation/NavigationButtons";
-import { Heading } from "@/components/Text/TextComponents";
+import { Heading, Paragraph } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window"); // Screen dimensions
 
@@ -27,6 +28,8 @@ export default function HomeScreen() {
   const [characterPositionX] = useState(new Animated.Value(0));
   const [characterPositionY] = useState(new Animated.Value(0));
   const [menuVisible, setMenuVisible] = useState(false); // State for submenu visibility
+
+  const [progress, setProgress] = useState(50);
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -121,7 +124,18 @@ export default function HomeScreen() {
         <View style={styles.menu}>
           <ScrollView contentContainerStyle={styles.menuContent}>
             <TouchableOpacity style={styles.subMenuItem} onPress={() => {}}>
-              <Heading color={colors.WhiteText}>Playground</Heading>
+              <Heading color={colors.WhiteText} style={{ marginBottom: 10 }}>
+                Playground
+              </Heading>
+              <View style={{ width: "100%", alignItems: "flex-start" }}>
+                <Paragraph
+                  color={colors.WhiteText}
+                  style={{ textAlign: "left" }}
+                >
+                  Discovering Faith
+                </Paragraph>
+                <ProgressBar progress={progress} height={40} />
+              </View>
             </TouchableOpacity>
           </ScrollView>
         </View>

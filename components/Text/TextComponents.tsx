@@ -6,7 +6,10 @@ import {
   Nunito_700Bold,
   Nunito_900Black,
 } from "@expo-google-fonts/nunito";
-import { Raleway_600SemiBold } from "@expo-google-fonts/raleway";
+import {
+  Raleway_600SemiBold,
+  Raleway_700Bold,
+} from "@expo-google-fonts/raleway";
 import { useFonts } from "expo-font";
 
 interface BaseTextProps extends TextProps {
@@ -101,6 +104,7 @@ const Paragraph = ({ style, children, color, ...props }: BaseTextProps) => {
   const [fontsLoaded] = useFonts({
     Nunito_800ExtraBold,
     Nunito_700Bold,
+    Raleway_700Bold,
     Raleway_600SemiBold,
   });
 
@@ -114,7 +118,7 @@ const Paragraph = ({ style, children, color, ...props }: BaseTextProps) => {
         styles.paragraph,
         color ? { color } : {}, // Apply color if provided
         style,
-        { fontFamily: "Raleway_600SemiBold" },
+        { fontFamily: "Raleway_700Bold" },
       ]}
       {...props}
     >

@@ -57,7 +57,8 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "90%", // Takes up 4/5 of the screen height
     backgroundColor: colors.SkyBluePrimary,
-    padding: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     zIndex: 1,
