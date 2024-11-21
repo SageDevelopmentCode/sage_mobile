@@ -7,13 +7,17 @@ import {
   TextStyle,
 } from "react-native";
 import { styles } from "../ActionButtons/ActionButton.styles";
-import { useFonts } from "expo-font";
 import { useCustomFonts } from "@/constants/fonts";
 
 interface ActionButtonProps {
   title: string; // Button text
   onPress: () => void; // Click handler
-  type?: "primary" | "BrightGreen" | "LightBrown" | "PrimaryBlue"; // Button type
+  type?:
+    | "primary"
+    | "BrightGreen"
+    | "LightBrown"
+    | "PrimaryBlue"
+    | "PrimaryPurple"; // Button type
   style?: ViewStyle; // Additional container styles
   textStyle?: TextStyle; // Additional text styles
   disabled?: boolean; // Disable the button
@@ -41,6 +45,8 @@ function ActionButton({
         return [styles.LightBrownButton, disabled && styles.disabled];
       case "PrimaryBlue":
         return [styles.PrimaryBlueButton, disabled && styles.disabled];
+      case "PrimaryPurple":
+        return [styles.PrimaryPurpleButton, disabled && styles.disabled];
       default:
         return [styles.BrightGreenButton, disabled && styles.disabled];
     }
@@ -53,6 +59,8 @@ function ActionButton({
       case "LightBrown":
         return styles.DarkBrownText;
       case "PrimaryBlue":
+        return styles.WhiteText;
+      case "PrimaryPurple":
         return styles.WhiteText;
       default:
         return styles.WhiteText;

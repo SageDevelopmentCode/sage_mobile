@@ -1,9 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import NavButton from "@/components/Buttons/NavButton/NavButton";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
+import { MaterialIcons, FontAwesome5, FontAwesome6 } from "@/utils/Icons";
 import { styles } from "./NavigationButtons.styles";
 
 interface NavigationButtonsProps {

@@ -1,12 +1,12 @@
-import { Divider } from "@/components/Divider";
-import { HStack } from "@/components/HStack";
-import { VStack } from "@/components/VStack";
-import { Button } from "@/components/Button";
-import { Input } from "@/components/input";
+import { Divider } from "@/components/Extra/Divider";
+import { HStack } from "@/components/Extra/HStack";
+import { VStack } from "@/components/Extra/VStack";
+import { Button } from "@/components/Extra/Button";
+import { Input } from "@/components/Extra/input";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { useState } from "react";
 import { KeyboardAvoidingView, ScrollView } from "react-native";
-import { Text } from "@/components/Text";
+import { Text } from "@/components/Extra/Text";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Login() {

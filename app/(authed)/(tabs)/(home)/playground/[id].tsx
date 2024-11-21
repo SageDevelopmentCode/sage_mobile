@@ -4,6 +4,10 @@ import { useNavigation, useRouter } from "expo-router"; // Import useRouter from
 import { TouchableOpacity } from "react-native";
 import { styles } from "./Playground.styles";
 import { View, Text, Button, ScrollView, Dimensions } from "react-native";
+import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
+import NavButton from "@/components/Buttons/NavButton/NavButton";
+import AntIcons from "react-native-vector-icons/AntDesign";
+import colors from "@/constants/colors";
 
 export default function PlaygroundScreen() {
   const navigation = useNavigation();
@@ -20,8 +24,18 @@ export default function PlaygroundScreen() {
       <View style={styles.container}>
         {/* Top Section */}
         <View style={styles.topSection}>
-          <Button title="Go Back" onPress={() => navigation.goBack()} />
-          <Button title="Button 2" onPress={() => alert("Button 2 Pressed")} />
+          <NavButton
+            IconLibrary={AntIcons}
+            iconName="close"
+            iconSize={40}
+            iconColor={colors.PrimaryRed}
+            onPress={() => navigation.goBack()}
+          />
+          <ActionButton
+            type="PrimaryPurple"
+            title="Discovering Faith"
+            onPress={() => {}}
+          />
         </View>
 
         {/* Scrollable Section */}

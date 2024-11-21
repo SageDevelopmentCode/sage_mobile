@@ -1,6 +1,5 @@
 import React from "react";
 import { TouchableOpacity, Text, View } from "react-native";
-// import Icon from "react-native-vector-icons/FontAwesome"; // Replace with your icon library
 import { styles } from "./NavButton.styles"; // Import styles
 
 type NavButtonProps = {

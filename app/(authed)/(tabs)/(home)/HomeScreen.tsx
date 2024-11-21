@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   ImageBackground,
   TouchableOpacity,
   Animated,
   Image,
   Dimensions,
-  ScrollView,
 } from "react-native";
 import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
 import { styles } from "./HomeScreen.styles"; // Import styles
@@ -15,10 +13,6 @@ import Background from "./assets/Background.png"; // Updated import path
 import Character from "./assets/CharacterImage.png";
 import Entypo from "react-native-vector-icons/Entypo";
 import NavigationButtons from "@/features/Navigation/NavigationButtons";
-import { Heading, Paragraph } from "@/components/Text/TextComponents";
-import colors from "@/constants/colors";
-import ProgressBar from "@/components/ProgressBar/ProgressBar";
-import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 import Submenu from "@/features/Submenu/Submenu";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window"); // Screen dimensions

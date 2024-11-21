@@ -1,6 +1,6 @@
-import { HStack } from "@/components/HStack";
-import { Text } from "@/components/Text";
-import { VStack } from "@/components/VStack";
+import { HStack } from "@/components/Extra/HStack";
+import { Text } from "@/components/Extra/Text";
+import { VStack } from "@/components/Extra/VStack";
 import { useAuth } from "@/context/AuthContext";
 import { characterService } from "@/services/character";
 import { Character } from "@/types/character";

@@ -19,12 +19,12 @@ export const styles = StyleSheet.create({
   },
   topSection: {
     flex: 0.2, // 1/5 of the screen height
-    backgroundColor: "#fff",
-    justifyContent: "center",
+    backgroundColor: colors.SkyBluePrimary,
+    justifyContent: "flex-end",
     alignItems: "center",
-    flexDirection: "row",
+    flexDirection: "column",
     gap: 10,
-    padding: 10,
+    padding: 30,
   },
   scrollSection: {
     flex: 0.8, // 4/5 of the screen height

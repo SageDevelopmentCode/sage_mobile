@@ -16,6 +16,7 @@ const colors = {
   BluePrimary: "#68AFFF",
   BluePrimaryBacking: "#518ED2",
   WhiteBacking: "#D9D9D9",
+  PrimaryRed: "#E6433A",
 } as const;
 
 export type Colors = typeof colors; // Extract the type for the colors object
