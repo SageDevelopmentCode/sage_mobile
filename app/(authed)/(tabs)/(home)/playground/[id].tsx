@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { router, useLocalSearchParams } from "expo-router";
 import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
-import { TouchableOpacity } from "react-native";
 import { styles } from "./Playground.styles";
 import { View, Text, Button, ScrollView, Dimensions } from "react-native";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
-import NavButton from "@/components/Buttons/NavButton/NavButton";
-import AntIcons from "react-native-vector-icons/AntDesign";
+import { Ionicons } from "@/utils/Icons";
 import colors from "@/constants/colors";
+import { SecondaryButtonAction } from "@/components/Buttons/SecondaryButtons/SecondaryButton";
 
 export default function PlaygroundScreen() {
   const navigation = useNavigation();
@@ -24,14 +23,18 @@ export default function PlaygroundScreen() {
       <View style={styles.container}>
         {/* Top Section */}
         <View style={styles.topSection}>
-          <NavButton
-            IconLibrary={AntIcons}
-            iconName="close"
-            iconSize={40}
-            iconColor={colors.PrimaryRed}
-            onPress={() => navigation.goBack()}
-          />
+          <View style={{ width: "100%", alignItems: "flex-end" }}>
+            <SecondaryButtonAction
+              IconLibrary={Ionicons}
+              iconName="close"
+              iconSize={25}
+              iconColor={colors.PrimaryRed}
+              onPress={() => navigation.goBack()}
+            />
+          </View>
+
           <ActionButton
+            style={{ marginTop: 10 }}
             type="PrimaryPurple"
             title="Discovering Faith"
             onPress={() => {}}

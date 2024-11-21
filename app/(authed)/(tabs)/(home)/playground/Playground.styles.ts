@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#f4f4f4",
   },
   topSection: {
-    flex: 0.2, // 1/5 of the screen height
+    flex: 0.3, // 1/5 of the screen height
     backgroundColor: colors.SkyBluePrimary,
     justifyContent: "flex-end",
     alignItems: "center",
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     padding: 30,
   },
   scrollSection: {
-    flex: 0.8, // 4/5 of the screen height
+    flex: 0.7, // 4/5 of the screen height
     backgroundColor: "#e9ecef",
     padding: 10,
   },

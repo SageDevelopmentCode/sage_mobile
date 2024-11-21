@@ -36,6 +36,7 @@ const Submenu = ({ progress }: SubmenuProps) => {
             <ProgressBar progress={progress} height={40} />
           </View>
           <ActionButton
+            style={{ marginTop: 25 }}
             title="Continue"
             type="BrightGreen"
             onPress={() =>
@@ -63,6 +64,7 @@ const Submenu = ({ progress }: SubmenuProps) => {
             Explore new Characters and Pets
           </Paragraph>
           <ActionButton
+            style={{ marginTop: 25 }}
             title="Enter"
             type="LightBrown"
             onPress={() => console.log("Primary Pressed")}
@@ -90,6 +92,7 @@ const Submenu = ({ progress }: SubmenuProps) => {
             Pray with God.
           </Paragraph>
           <ActionButton
+            style={{ marginTop: 25 }}
             title="Write"
             type="LightBrown"
             onPress={() => console.log("Primary Pressed")}

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 25,
+    // marginTop: 25,
     width: "100%",
   },
   BrightGreenButton: {
