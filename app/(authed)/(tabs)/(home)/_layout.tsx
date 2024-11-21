@@ -5,6 +5,7 @@ export default function HomeLayout() {
     <Stack screenOptions={{ headerBackTitle: "Home" }}>
       <Stack.Screen name="index" />
       <Stack.Screen name="journey/[id]" />
+      <Stack.Screen name="playground/[id]" />
     </Stack>
   );
 }
