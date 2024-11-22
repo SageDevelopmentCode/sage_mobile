@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import { router, useLocalSearchParams } from "expo-router";
 import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
 import { styles } from "./Playground.styles";
-import { View, Text, Button, ScrollView, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  ScrollView,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
-import { Ionicons } from "@/utils/Icons";
+import { FontAwesome5, Ionicons } from "@/utils/Icons";
 import colors from "@/constants/colors";
 import { SecondaryButtonAction } from "@/components/Buttons/SecondaryButtons/SecondaryButton";
 
@@ -43,19 +50,18 @@ export default function PlaygroundScreen() {
 
         {/* Scrollable Section */}
         <ScrollView style={styles.scrollSection}>
-          <View style={styles.module}>
-            <Text style={styles.moduleTitle}>Module 1</Text>
-            <Text style={styles.moduleContent}>Description of Module 1...</Text>
-          </View>
-          <View style={styles.module}>
-            <Text style={styles.moduleTitle}>Module 2</Text>
-            <Text style={styles.moduleContent}>Description of Module 2...</Text>
-          </View>
-          <View style={styles.module}>
-            <Text style={styles.moduleTitle}>Module 3</Text>
-            <Text style={styles.moduleContent}>Description of Module 3...</Text>
-          </View>
-          {/* Add more modules as needed */}
+          <TouchableOpacity onPress={() => {}}>
+            <View style={styles.activeModule}>
+              <FontAwesome5 name="play" size={30} color={colors.WhiteText} />
+            </View>
+          </TouchableOpacity>
+
+          {/* Inactive Module */}
+          <TouchableOpacity onPress={() => {}}>
+            <View style={styles.activeModule}>
+              <FontAwesome5 name="play" size={30} color={colors.WhiteText} />
+            </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </>
