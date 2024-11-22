@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     flex: 0.7,
     backgroundColor: colors.GreenPrimary,
     paddingHorizontal: 10,
-    paddingVertical: 30,
+    paddingVertical: 40,
   },
   activeModule: {
     backgroundColor: colors.PurplePrimary,
@@ -49,11 +49,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   inactiveModule: {
-    backgroundColor: colors.PurplePrimary,
-    width: 80,
-    height: 80,
+    backgroundColor: colors.GrayPrimary,
+    width: 70,
+    height: 70,
     borderRadius: 1000,
-    shadowColor: colors.PurpleBacking, // Shadow color
+    shadowColor: colors.GrayBacking, // Shadow color
     shadowOffset: { width: 0, height: 7 }, // Shadow offset
     shadowOpacity: 1, // Fully opaque shadow
     shadowRadius: 0, // Shadow spread
@@ -77,5 +77,22 @@ export const styles = StyleSheet.create({
     marginHorizontal: "auto",
     justifyContent: "center",
     alignItems: "center",
+  },
+  menu: {
+    position: "absolute",
+    bottom: 55,
+    left: "5%", // Moves the left edge of the element to the center of the parent
+    width: "90%",
+    // height: "40%", // Takes up 4/5 of the screen height
+    borderRadius: 30,
+    backgroundColor: colors.PrimaryWhite,
+    paddingHorizontal: 30,
+    paddingVertical: 30,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    borderWidth: 10, // Thickness of the border
+    borderColor: "rgba(64, 202, 160, 0.68)", // Border color with transparency
+    borderStyle: "solid", // Ensures the border is solid (default, but explicit is better)
+    zIndex: 1,
   },
 });

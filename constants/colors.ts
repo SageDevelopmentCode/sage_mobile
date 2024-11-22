@@ -11,12 +11,17 @@ const colors = {
   PurpleBacking: "#A57CDA",
   WhiteText: "#FFFFFF",
   BlackText: "#282828",
+  BlueText: "#13A4FF",
   BrightGreen: "#8EDE0F",
   BrightGreenBacking: "#79CB00",
   BluePrimary: "#68AFFF",
   BluePrimaryBacking: "#518ED2",
   WhiteBacking: "#D9D9D9",
   PrimaryRed: "#E6433A",
+  GrayPrimary: "#ECECEC",
+  GrayBacking: "#969696",
+  PrimaryWhite: "#FFFFFF",
+  BlueTint: "#DFEEFF",
 } as const;
 
 export type Colors = typeof colors; // Extract the type for the colors object
