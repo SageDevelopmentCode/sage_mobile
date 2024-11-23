@@ -15,7 +15,7 @@ import { styles } from "./Submenu.styles";
 
 interface SubmenuProps {
   progress: number;
-  slideAnim: any;
+  slideAnim: Animated.Value;
 }
 
 const Submenu = ({ progress, slideAnim }: SubmenuProps) => {

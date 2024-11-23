@@ -68,7 +68,7 @@ export default function PlaygroundScreen() {
           </View>
 
           <ActionButton
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 20 }}
             type="PrimaryPurple"
             title="Discovering Faith"
             onPress={() => {}}

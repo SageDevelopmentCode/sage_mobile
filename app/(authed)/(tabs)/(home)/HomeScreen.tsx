@@ -23,11 +23,11 @@ export default function HomeScreen() {
   const navigation = useNavigation();
   const [characterPositionX] = useState(new Animated.Value(0));
   const [characterPositionY] = useState(new Animated.Value(0));
-  const [menuVisible, setMenuVisible] = useState(false); // State for submenu visibility
-
-  const slideAnim = useRef(new Animated.Value(800)).current;
 
   const [progress, setProgress] = useState(50);
+
+  const [menuVisible, setMenuVisible] = useState(false); // State for submenu visibility
+  const slideAnim = useRef(new Animated.Value(800)).current;
 
   const toggleMenu = () => {
     if (menuVisible) {
