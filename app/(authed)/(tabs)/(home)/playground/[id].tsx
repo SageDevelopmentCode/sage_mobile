@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { router, useLocalSearchParams } from "expo-router";
 import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
 import { styles } from "./Playground.styles";
@@ -9,6 +9,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
+  Animated,
 } from "react-native";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 import { FontAwesome5, FontAwesome6, Ionicons } from "@/utils/Icons";
@@ -24,11 +25,31 @@ export default function PlaygroundScreen() {
   const [menuRewards, setMenuRewards] = useState([]);
   const [menuStatus, setMenuStatus] = useState("");
 
+  const slideAnim = useRef(new Animated.Value(800)).current; // Start position off-screen
+
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
   }, [navigation]);
 
   const { id } = useLocalSearchParams();
+
+  const toggleMenu = () => {
+    if (menuVisible) {
+      // Close menu
+      Animated.timing(slideAnim, {
+        toValue: 800, // Move off-screen
+        duration: 300,
+        useNativeDriver: true,
+      }).start(() => setMenuVisible(false)); // Set visibility to false after animation
+    } else {
+      setMenuVisible(true); // Set visibility to true before animation
+      Animated.timing(slideAnim, {
+        toValue: 0, // Bring into view
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    }
+  };
 
   console.log("id: ", id);
   return (
@@ -57,7 +78,7 @@ export default function PlaygroundScreen() {
         {/* you can create an array ["25%", "50%", "25%", 0, "-25%"] and then the index when you map can be each one in the array */}
         {/* Scrollable Section */}
         <ScrollView style={styles.scrollSection}>
-          <TouchableOpacity onPress={() => setMenuVisible(!menuVisible)}>
+          <TouchableOpacity onPress={toggleMenu}>
             <View style={styles.activeModule}>
               <FontAwesome5 name="play" size={30} color={colors.WhiteText} />
             </View>
@@ -111,10 +132,17 @@ export default function PlaygroundScreen() {
         </ScrollView>
 
         {menuVisible && (
-          <View style={styles.menu}>
+          <Animated.View
+            style={[
+              styles.menu,
+              {
+                transform: [{ translateY: slideAnim }],
+              },
+            ]}
+          >
             <TouchableOpacity
               // style={styles.outsideCloseButton}
-              onPress={() => setMenuVisible(false)}
+              onPress={toggleMenu}
             >
               <View
                 style={{
@@ -165,7 +193,7 @@ export default function PlaygroundScreen() {
               title="Start"
               onPress={() => {}}
             />
-          </View>
+          </Animated.View>
         )}
       </View>
     </>

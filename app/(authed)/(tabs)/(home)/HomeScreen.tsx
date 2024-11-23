@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   ImageBackground,
@@ -25,7 +25,27 @@ export default function HomeScreen() {
   const [characterPositionY] = useState(new Animated.Value(0));
   const [menuVisible, setMenuVisible] = useState(false); // State for submenu visibility
 
+  const slideAnim = useRef(new Animated.Value(800)).current;
+
   const [progress, setProgress] = useState(50);
+
+  const toggleMenu = () => {
+    if (menuVisible) {
+      // Close menu
+      Animated.timing(slideAnim, {
+        toValue: 800, // Move off-screen
+        duration: 300,
+        useNativeDriver: true,
+      }).start(() => setMenuVisible(false)); // Set visibility to false after animation
+    } else {
+      setMenuVisible(true); // Set visibility to true before animation
+      Animated.timing(slideAnim, {
+        toValue: 0, // Bring into view
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    }
+  };
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -106,7 +126,7 @@ export default function HomeScreen() {
       {menuVisible && (
         <TouchableOpacity
           style={styles.outsideCloseButton}
-          onPress={() => setMenuVisible(false)}
+          onPress={toggleMenu}
         >
           <Entypo name="chevron-down" size={45} color="#ffffff" />
         </TouchableOpacity>
@@ -116,12 +136,9 @@ export default function HomeScreen() {
       {menuVisible && <View style={styles.overlay} />}
 
       {/* Submenu */}
-      {menuVisible && <Submenu progress={progress} />}
+      {menuVisible && <Submenu progress={progress} slideAnim={slideAnim} />}
 
-      <NavigationButtons
-        onMenuToggle={() => setMenuVisible(!menuVisible)}
-        router={router}
-      />
+      <NavigationButtons onMenuToggle={toggleMenu} router={router} />
     </ImageBackground>
   );
 }

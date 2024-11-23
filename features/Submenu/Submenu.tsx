@@ -1,5 +1,11 @@
 import React from "react";
-import { ScrollView, TouchableOpacity, View, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Animated,
+} from "react-native";
 import { useRouter } from "expo-router";
 import { Heading, Paragraph } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
@@ -9,13 +15,21 @@ import { styles } from "./Submenu.styles";
 
 interface SubmenuProps {
   progress: number;
+  slideAnim: any;
 }
 
-const Submenu = ({ progress }: SubmenuProps) => {
+const Submenu = ({ progress, slideAnim }: SubmenuProps) => {
   const router = useRouter();
 
   return (
-    <View style={styles.menu}>
+    <Animated.View
+      style={[
+        styles.menu,
+        {
+          transform: [{ translateY: slideAnim }],
+        },
+      ]}
+    >
       <ScrollView contentContainerStyle={styles.menuContent}>
         <TouchableOpacity
           style={styles.subMenuItem}
@@ -99,7 +113,7 @@ const Submenu = ({ progress }: SubmenuProps) => {
           />
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </Animated.View>
   );
 };
 
