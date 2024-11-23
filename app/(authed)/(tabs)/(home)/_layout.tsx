@@ -6,6 +6,8 @@ export default function HomeLayout() {
       <Stack.Screen name="index" />
       <Stack.Screen name="journey/[id]" />
       <Stack.Screen name="playground/[id]" />
+      {/* <Stack.Screen name="playground/units/discovering_faith/modules/1/[id]" /> */}
+      <Stack.Screen name="playground/units/discovering_faith/IntroScreen" />
     </Stack>
   );
 }

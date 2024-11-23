@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { router, useLocalSearchParams } from "expo-router";
 import { useNavigation, useRouter } from "expo-router"; // Import useRouter from expo-router
-import { styles } from "./Playground.styles";
+import { styles } from "./Modules.styles";
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import colors from "@/constants/colors";
 import { SecondaryButtonAction } from "@/components/Buttons/SecondaryButtons/SecondaryButton";
 import { Heading, Paragraph } from "@/components/Text/TextComponents";
 
-export default function PlaygroundScreen() {
+export default function ModulesScreen() {
   const navigation = useNavigation();
   const [menuVisible, setMenuVisible] = useState(false); // State for submenu visibility
   const [menuTitle, setMenuTitle] = useState("");
