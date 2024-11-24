@@ -4,7 +4,11 @@ import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./IntroScreen.styles";
-import { ButtonText } from "@/components/Text/TextComponents";
+import {
+  ButtonText,
+  Title,
+  SubHeading,
+} from "@/components/Text/TextComponents";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 
 export default function IntroScreen() {
@@ -21,6 +25,7 @@ export default function IntroScreen() {
           source={require("../discovering_faith/assets/Globe.png")} // Replace with your image path
           style={styles.backgroundImage}
         />
+
         <View style={styles.row}>
           <TouchableOpacity
             style={styles.backButton}
@@ -40,6 +45,14 @@ export default function IntroScreen() {
           title="Discovering Faith"
           onPress={() => {}}
         />
+        <View style={styles.centeredTextWrapper}>
+          <SubHeading style={{ textAlign: "center" }} color={colors.WhiteText}>
+            What is
+          </SubHeading>
+          <Title style={{ textAlign: "center" }} color={colors.PurplePrimary}>
+            Genesis?
+          </Title>
+        </View>
       </View>
     </>
   );

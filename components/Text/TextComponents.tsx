@@ -19,6 +19,34 @@ interface BaseTextProps extends TextProps {
 }
 
 // Heading component
+const Title = ({ style, children, color, ...props }: BaseTextProps) => {
+  const [fontsLoaded] = useFonts({
+    Nunito_900Black,
+    Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
+  return (
+    <Text
+      style={[
+        styles.title,
+        color ? { color } : {},
+        style,
+        { fontFamily: "Nunito_900Black" },
+      ]}
+      {...props}
+    >
+      {children}
+    </Text>
+  );
+};
+
+// Heading component
 const Heading = ({ style, children, color, ...props }: BaseTextProps) => {
   const [fontsLoaded] = useFonts({
     Nunito_900Black,
@@ -127,4 +155,4 @@ const Paragraph = ({ style, children, color, ...props }: BaseTextProps) => {
   );
 };
 
-export { Heading, SubHeading, Paragraph, ButtonText };
+export { Heading, SubHeading, Paragraph, ButtonText, Title };

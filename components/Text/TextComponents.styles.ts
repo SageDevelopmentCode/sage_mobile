@@ -2,6 +2,11 @@ import colors from "@/constants/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  title: {
+    fontSize: 50,
+    fontWeight: 900,
+    color: colors.BlackText,
+  },
   heading: {
     fontSize: 32,
     fontWeight: 900,

@@ -14,8 +14,12 @@ export const styles = StyleSheet.create({
     bottom: "-35%",
     left: 0,
     width: "115%",
-    // height: "40%", // Adjust height as needed
-    zIndex: -1, // Push the image behind other elements
+    zIndex: -2, // Push the image behind other elements
+  },
+  centeredTextWrapper: {
+    flex: 0.7,
+    justifyContent: "center",
+    alignItems: "center",
   },
   row: {
     flexDirection: "row",
