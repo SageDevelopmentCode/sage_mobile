@@ -1,5 +1,7 @@
 const colors = {
   SkyBluePrimary: "#AFE3EF",
+  DarkSkyBluePrimary: "#99D8E7",
+  DarkSkyBlueBacking: "#8ECCDB",
   GreenPrimary: "#40CAA0",
   GreenBacking: "#38B38E",
   LightBrown: "#FFF1E1",
