@@ -17,12 +17,6 @@ export const styles = StyleSheet.create({
     width: "115%",
     zIndex: -2, // Push the image behind other elements
   },
-  centeredTextWrapper: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 70,
-  },
   row: {
     flexDirection: "row",
     alignItems: "center",

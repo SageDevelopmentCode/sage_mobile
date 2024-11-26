@@ -6,7 +6,7 @@ export default function HomeLayout() {
       <Stack.Screen name="index" />
       <Stack.Screen name="journey/[id]" />
       <Stack.Screen name="playground/[id]" />
-      {/* <Stack.Screen name="playground/units/creation_story/modules/1/[id]" /> */}
+      <Stack.Screen name="playground/units/creation_story/modules/1/[id]" />
       <Stack.Screen name="playground/units/creation_story/IntroScreen" />
       <Stack.Screen name="playground/units/creation_story/Modules" />
     </Stack>
