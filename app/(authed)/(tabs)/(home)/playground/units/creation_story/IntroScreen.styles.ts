@@ -7,19 +7,22 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.DarkSkyBluePrimary,
     paddingVertical: 65,
     paddingHorizontal: 20,
+    justifyContent: "space-between",
     position: "relative",
   },
-  backgroundImage: {
+  globeImage: {
     position: "absolute",
     bottom: "-35%",
     left: 0,
     width: "115%",
     zIndex: -2, // Push the image behind other elements
   },
+  startButton: {},
   centeredTextWrapper: {
-    flex: 0.7,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 70,
   },
   row: {
     flexDirection: "row",

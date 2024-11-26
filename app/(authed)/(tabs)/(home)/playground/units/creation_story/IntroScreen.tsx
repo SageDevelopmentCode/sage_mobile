@@ -22,29 +22,29 @@ export default function IntroScreen() {
     <>
       <View style={styles.container}>
         <Image
-          source={require("../discovering_faith/assets/Globe.png")} // Replace with your image path
-          style={styles.backgroundImage}
+          source={require("../creation_story/assets/Globe.png")} // Replace with your image path
+          style={styles.globeImage}
         />
-
-        <View style={styles.row}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="chevron-back" color={colors.WhiteText} size={40} />
-          </TouchableOpacity>
-          <View style={styles.progressWrapper}>
-            <View style={styles.progressCount}>
-              <ButtonText color={colors.WhiteText}>1 / 3</ButtonText>
+        <View>
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Ionicons
+                name="chevron-back"
+                color={colors.WhiteText}
+                size={40}
+              />
+            </TouchableOpacity>
+            <View style={styles.progressWrapper}>
+              <View style={styles.progressCount}>
+                <ButtonText color={colors.WhiteText}>1 / 3</ButtonText>
+              </View>
             </View>
           </View>
         </View>
-        <ActionButton
-          style={{ marginTop: 20 }}
-          type="PrimaryPurple"
-          title="Discovering Faith"
-          onPress={() => {}}
-        />
+
         <View style={styles.centeredTextWrapper}>
           <SubHeading style={{ textAlign: "center" }} color={colors.WhiteText}>
             What is
@@ -53,6 +53,12 @@ export default function IntroScreen() {
             Genesis?
           </Title>
         </View>
+        <ActionButton
+          style={styles.startButton}
+          type="PrimaryPurple"
+          title="Start"
+          onPress={() => {}}
+        />
       </View>
     </>
   );

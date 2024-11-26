@@ -193,7 +193,7 @@ export default function ModulesScreen() {
               title="Start"
               onPress={() =>
                 router.push(
-                  "/(authed)/(home)/playground/units/discovering_faith/IntroScreen"
+                  "/(authed)/(home)/playground/units/creation_story/IntroScreen"
                 )
               }
             />
