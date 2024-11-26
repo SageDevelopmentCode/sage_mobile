@@ -5,6 +5,8 @@ import { styles } from "./Module1.styles";
 import { Ionicons } from "@/utils/Icons";
 import colors from "@/constants/colors";
 import { ButtonText } from "@/components/Text/TextComponents";
+import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
+import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 
 export default function ModuleOneScreen() {
   const { id } = useLocalSearchParams();
@@ -22,21 +24,11 @@ export default function ModuleOneScreen() {
           source={require("../../assets/Globe.png")} // Replace with your image path
           style={styles.globeImage}
         />
-      </View>
-      <View>
-        <View style={styles.row}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="chevron-back" color={colors.WhiteText} size={40} />
-          </TouchableOpacity>
-          <View style={styles.progressWrapper}>
-            <View style={styles.progressCount}>
-              <ButtonText color={colors.WhiteText}>1 / 3</ButtonText>
-            </View>
-          </View>
-        </View>
+        <HeaderProgress
+          progressText="2 / 5"
+          onBackPress={() => navigation.goBack()}
+        />
+        <ActionButton type="PrimaryBlue" title="Next" onPress={() => {}} />
       </View>
     </>
   );

@@ -1,5 +1,5 @@
 import colors from "@/constants/colors";
-import { useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./IntroScreen.styles";
@@ -34,7 +34,17 @@ export default function IntroScreen() {
             Genesis?
           </Title>
         </View>
-        <ActionButton type="PrimaryPurple" title="Start" onPress={() => {}} />
+        <ActionButton
+          type="PrimaryPurple"
+          title="Start"
+          onPress={() =>
+            router.push({
+              pathname:
+                "/(authed)/(home)/playground/units/creation_story/modules/1/[id]",
+              params: { id: "521g13245" },
+            })
+          }
+        />
       </View>
     </>
   );
