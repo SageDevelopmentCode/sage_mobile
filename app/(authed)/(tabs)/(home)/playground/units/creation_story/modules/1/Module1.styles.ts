@@ -55,9 +55,11 @@ export const styles = StyleSheet.create({
   },
   stickerRevealWindow: {
     position: "absolute",
-    bottom: 55,
     alignSelf: "center", // Center horizontally
-    borderRadius: 40,
+    top: "40%", // Position 50% down from the top
+    transform: [{ translateY: "-50%" }],
+    width: "100%",
+    borderRadius: 30,
     backgroundColor: colors.LightBlue,
     paddingHorizontal: 30,
     paddingVertical: 30,

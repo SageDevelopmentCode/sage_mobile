@@ -18,6 +18,7 @@ interface ActionButtonProps {
     | "LightBrown"
     | "PrimaryBlue"
     | "PrimaryPurple"
+    | "PrimaryGreen"
     | "TransparentBlue";
   style?: ViewStyle; // Additional container styles
   textStyle?: TextStyle; // Additional text styles
@@ -42,6 +43,8 @@ function ActionButton({
     switch (type) {
       case "BrightGreen":
         return [styles.BrightGreenButton, disabled && styles.disabled];
+      case "PrimaryGreen":
+        return [styles.PrimaryGreenButton, disabled && styles.disabled];
       case "LightBrown":
         return [styles.LightBrownButton, disabled && styles.disabled];
       case "PrimaryBlue":
@@ -67,6 +70,8 @@ function ActionButton({
       case "PrimaryBlue":
         return styles.WhiteText;
       case "PrimaryPurple":
+        return styles.WhiteText;
+      case "PrimaryGreen":
         return styles.WhiteText;
       case "TransparentBlue":
         return styles.BlueText;

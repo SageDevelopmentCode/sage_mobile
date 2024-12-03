@@ -161,6 +161,7 @@ export default function ModuleOneScreen() {
           <Animated.Image source={Character} />
         </TouchableOpacity>
 
+        {/* Sticker Window */}
         {stickerWindowRevealed && (
           <Animated.View
             style={[
@@ -170,6 +171,7 @@ export default function ModuleOneScreen() {
               },
             ]}
           >
+            <View style={styles.stickerShow}></View>
             <SubHeading color={colors.GreenText} style={{ marginBottom: 10 }}>
               Beginning
             </SubHeading>
@@ -178,7 +180,7 @@ export default function ModuleOneScreen() {
             </Paragraph>
             <ActionButton
               style={{ marginTop: 30 }}
-              type="BrightGreen"
+              type="PrimaryGreen"
               title="Continue"
               onPress={() => closeStickerRevealWindow()}
             />
