@@ -16,13 +16,12 @@ import {
   ButtonText,
   Dialogue,
   Heading,
-  Paragraph,
-  SubHeading,
 } from "@/components/Text/TextComponents";
 import { FontAwesome } from "@/utils/Icons";
 import colors from "@/constants/colors";
 import Overlay from "@/components/Overlay/Overlay";
 import UnlockedStickerWindow from "@/components/Sticker/UnlockedStickerWindow";
+import { splitDialogue } from "@/utils/Dialogue/splitDialogue";
 
 type DialogueChunk = string[];
 
@@ -109,18 +108,6 @@ export default function ModuleOneScreen() {
   // Sample long dialogue (this can be dynamic for future dialogues)
   const longDialogue: string =
     "Hey there, friend! Did you know that the very first book of the Bible is called Genesis? It's all about how God created everything around us! Let’s dive in and learn more about it together!";
-
-  // Function to split the long dialogue into chunks of a specified number of words
-  const splitDialogue = (text: string, wordLimit: number): DialogueChunk => {
-    const words = text.split(" ");
-    let chunks: DialogueChunk = [];
-
-    for (let i = 0; i < words.length; i += wordLimit) {
-      chunks.push(words.slice(i, i + wordLimit).join(" "));
-    }
-
-    return chunks;
-  };
 
   // Break the dialogue into chunks of 5 words for example (this can be adjusted)
   const dialogueChunks: DialogueChunk = splitDialogue(longDialogue, 10);
