@@ -38,7 +38,7 @@ export default function ModuleOneScreen() {
     animation.current = Animated.loop(
       Animated.sequence([
         Animated.timing(translateY, {
-          toValue: -8, // Move up by 10px
+          toValue: -10, // Move up by 10px
           duration: 1000, // 1 second
           easing: Easing.inOut(Easing.ease),
           useNativeDriver: true,
