@@ -16,9 +16,12 @@ import {
   ButtonText,
   Dialogue,
   Heading,
+  Paragraph,
+  SubHeading,
 } from "@/components/Text/TextComponents";
 import { FontAwesome } from "@/utils/Icons";
 import colors from "@/constants/colors";
+import Overlay from "@/components/Overlay/Overlay";
 
 type DialogueChunk = string[];
 
@@ -27,10 +30,30 @@ export default function ModuleOneScreen() {
   const [dialogVisible, setDialogVisible] = useState<boolean>(false);
   const [sentenceIndex, setSentenceIndex] = useState<number>(0);
   const [revealed, setRevealed] = useState(false);
+  const [stickerUnlocked, setStickerUnlocked] = useState(false);
+  const [stickerWindowRevealed, setStickerWindowRevealed] = useState(false);
   const animation = useRef<Animated.CompositeAnimation | null>(null);
 
   const translateY = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(800)).current; // Start position off-screen
 
+  // const revealStickerWindow = () => {
+  //   if (stickerWindowRevealed) {
+  //     // Close menu
+  //     Animated.timing(slideAnim, {
+  //       toValue: 800, // Move off-screen
+  //       duration: 300,
+  //       useNativeDriver: true,
+  //     }).start(() => setStickerWindowRevealed(false)); // Set visibility to false after animation
+  //   } else {
+  //     setStickerWindowRevealed(true); // Set visibility to true before animation
+  //     Animated.timing(slideAnim, {
+  //       toValue: 0, // Bring into view
+  //       duration: 300,
+  //       useNativeDriver: true,
+  //     }).start();
+  //   }
+  // };
   // Function to start the levitation animation
   const startLevitation = () => {
     animation.current = Animated.loop(
@@ -74,6 +97,23 @@ export default function ModuleOneScreen() {
 
   const handleRevealedPress = () => {
     setRevealed(true);
+
+    setTimeout(() => {
+      setStickerWindowRevealed(true);
+      Animated.timing(slideAnim, {
+        toValue: 0, // Bring into view
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    }, 2000); // 2000 milliseconds = 2 seconds
+  };
+
+  const closeStickerRevealWindow = () => {
+    Animated.timing(slideAnim, {
+      toValue: 800, // Move off-screen
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => setStickerWindowRevealed(false)); // Set visibility to false after animation
   };
 
   const navigation = useNavigation();
@@ -133,6 +173,32 @@ export default function ModuleOneScreen() {
         >
           <Animated.Image source={Character} />
         </TouchableOpacity>
+
+        {stickerWindowRevealed && (
+          <Animated.View
+            style={[
+              styles.stickerRevealWindow,
+              {
+                transform: [{ translateY: slideAnim }],
+              },
+            ]}
+          >
+            <SubHeading color={colors.GreenText} style={{ marginBottom: 10 }}>
+              Beginning
+            </SubHeading>
+            <Paragraph color={colors.BlackText} style={{ marginBottom: 20 }}>
+              Sticker Unlocked!
+            </Paragraph>
+            <ActionButton
+              style={{ marginTop: 30 }}
+              type="BrightGreen"
+              title="Continue"
+              onPress={() => closeStickerRevealWindow()}
+            />
+          </Animated.View>
+        )}
+
+        {stickerWindowRevealed && <Overlay />}
 
         {/* Dialog Modal */}
         {dialogVisible && (

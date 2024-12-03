@@ -53,4 +53,19 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  stickerRevealWindow: {
+    position: "absolute",
+    bottom: 55,
+    alignSelf: "center", // Center horizontally
+    borderRadius: 40,
+    backgroundColor: colors.LightBlue,
+    paddingHorizontal: 30,
+    paddingVertical: 30,
+    borderWidth: 10, // Thickness of the border
+    borderColor: colors.LightBlueBacking, // Border color with transparency
+    borderStyle: "solid", // Ensures the border is solid (default, but explicit is better)
+    zIndex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
