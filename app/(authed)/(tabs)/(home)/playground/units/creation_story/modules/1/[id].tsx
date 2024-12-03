@@ -22,6 +22,7 @@ import {
 import { FontAwesome } from "@/utils/Icons";
 import colors from "@/constants/colors";
 import Overlay from "@/components/Overlay/Overlay";
+import UnlockedStickerWindow from "@/components/Sticker/UnlockedStickerWindow";
 
 type DialogueChunk = string[];
 
@@ -163,28 +164,11 @@ export default function ModuleOneScreen() {
 
         {/* Sticker Window */}
         {stickerWindowRevealed && (
-          <Animated.View
-            style={[
-              styles.stickerRevealWindow,
-              {
-                transform: [{ translateY: slideAnim }],
-              },
-            ]}
-          >
-            <View style={styles.stickerShow}></View>
-            <SubHeading color={colors.GreenText} style={{ marginBottom: 10 }}>
-              Beginning
-            </SubHeading>
-            <Paragraph color={colors.BlackText} style={{ marginBottom: 20 }}>
-              Sticker Unlocked!
-            </Paragraph>
-            <ActionButton
-              style={{ marginTop: 30 }}
-              type="PrimaryGreen"
-              title="Continue"
-              onPress={() => closeStickerRevealWindow()}
-            />
-          </Animated.View>
+          <UnlockedStickerWindow
+            imageSource={require("../../assets/PlantSticker.png")}
+            slideAnim={slideAnim}
+            closeStickerRevealWindow={closeStickerRevealWindow}
+          />
         )}
 
         {stickerWindowRevealed && <Overlay />}
@@ -262,22 +246,26 @@ export default function ModuleOneScreen() {
           <Heading style={{ color: colors.WhiteText }}>
             Genesis means...
           </Heading>
-          <View
-            style={[
-              styles.hiddenWordContainer,
-              {
-                backgroundColor: revealed ? colors.GreenPrimary : "#8ECCDB",
-              },
-            ]}
-          >
-            <TouchableOpacity onPress={handleRevealedPress}>
-              {!revealed ? (
-                <ButtonText color="#689AA6">Tap to reveal!</ButtonText>
-              ) : (
-                <ButtonText color={colors.WhiteText}>New Beginnings</ButtonText>
-              )}
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity onPress={handleRevealedPress}>
+            <View
+              style={[
+                styles.hiddenWordContainer,
+                {
+                  backgroundColor: revealed ? colors.GreenPrimary : "#8ECCDB",
+                },
+              ]}
+            >
+              <TouchableOpacity onPress={handleRevealedPress}>
+                {!revealed ? (
+                  <ButtonText color="#689AA6">Tap to reveal!</ButtonText>
+                ) : (
+                  <ButtonText color={colors.WhiteText}>
+                    New Beginnings
+                  </ButtonText>
+                )}
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </>

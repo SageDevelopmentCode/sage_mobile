@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
   stickerRevealWindow: {
     position: "absolute",
     alignSelf: "center", // Center horizontally
-    top: "40%", // Position 50% down from the top
+    top: "30%", // Position 50% down from the top
     transform: [{ translateY: "-50%" }],
     width: "100%",
     borderRadius: 30,
@@ -69,5 +69,18 @@ export const styles = StyleSheet.create({
     zIndex: 5,
     alignItems: "center",
     justifyContent: "center",
+  },
+  stickerShow: {
+    width: 80,
+    height: 80,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 20,
+    marginBottom: 20,
+    backgroundColor: colors.LightBrown,
+  },
+  sticker: {
+    width: 45,
+    height: 45,
   },
 });
