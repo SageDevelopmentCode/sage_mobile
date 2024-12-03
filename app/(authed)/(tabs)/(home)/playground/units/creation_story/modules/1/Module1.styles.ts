@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.DarkSkyBluePrimary,
     paddingVertical: 65,
     paddingHorizontal: 20,
-    justifyContent: "space-between",
     position: "relative",
   },
   globeImage: {
@@ -16,6 +15,11 @@ export const styles = StyleSheet.create({
     left: 0,
     width: "115%",
     zIndex: -2, // Push the image behind other elements
+  },
+  nextButton: {
+    position: "absolute",
+    bottom: "9%",
+    alignSelf: "center",
   },
   characterImage: {
     width: 200,
@@ -39,5 +43,14 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     borderColor: "rgba(159, 228, 244, 0.6)", // Light blue border with transparency
     borderWidth: 7, // 7px border
+  },
+  hiddenWordContainer: {
+    width: "100%",
+    padding: 15,
+    borderRadius: 20,
+    marginTop: 10,
+    backgroundColor: "#8ECCDB",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

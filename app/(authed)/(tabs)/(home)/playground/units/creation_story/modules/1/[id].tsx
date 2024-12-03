@@ -1,11 +1,24 @@
 import { useLocalSearchParams, useNavigation } from "expo-router";
-import { useEffect, useState } from "react";
-import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import {
+  Animated,
+  Easing,
+  Image,
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { styles } from "./Module1.styles";
 import Character from "../../../../../assets/CharacterImage.png";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
-import { Dialogue } from "@/components/Text/TextComponents";
+import {
+  ButtonText,
+  Dialogue,
+  Heading,
+  SubHeading,
+} from "@/components/Text/TextComponents";
 import { FontAwesome } from "@/utils/Icons";
 import colors from "@/constants/colors";
 
@@ -15,10 +28,57 @@ export default function ModuleOneScreen() {
   const { id } = useLocalSearchParams();
   const [dialogVisible, setDialogVisible] = useState<boolean>(false);
   const [sentenceIndex, setSentenceIndex] = useState<number>(0);
+  const [revealed, setRevealed] = useState(false);
+  const animation = useRef<Animated.CompositeAnimation | null>(null);
+
+  const translateY = useRef(new Animated.Value(0)).current;
+
+  // Function to start the levitation animation
+  const startLevitation = () => {
+    animation.current = Animated.loop(
+      Animated.sequence([
+        Animated.timing(translateY, {
+          toValue: -8, // Move up by 10px
+          duration: 1000, // 1 second
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(translateY, {
+          toValue: 0, // Return to original position
+          duration: 1000, // 1 second
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+      ])
+    );
+
+    animation.current.start();
+  };
+
+  // Function to stop the levitation animation
+  const stopLevitation = () => {
+    animation.current?.stop();
+    translateY.setValue(0); // Reset position
+  };
+
+  // Start animation on component mount
+  useEffect(() => {
+    if (!dialogVisible) {
+      startLevitation();
+    } else {
+      stopLevitation();
+    }
+
+    return () => {
+      animation.current?.stop(); // Cleanup on unmount
+    };
+  }, [dialogVisible]);
+
+  const handleRevealedPress = () => {
+    setRevealed(true);
+  };
 
   const navigation = useNavigation();
-
-  // State to manage current sentence index
 
   // Sample long dialogue (this can be dynamic for future dialogues)
   const longDialogue: string =
@@ -65,10 +125,15 @@ export default function ModuleOneScreen() {
           style={styles.globeImage}
         />
         <TouchableOpacity
-          style={styles.characterImage}
+          style={[
+            styles.characterImage,
+            {
+              transform: [{ translateY }], // Apply the animation
+            },
+          ]}
           onPress={() => setDialogVisible(true)} // Show dialog on press
         >
-          <Image source={Character} />
+          <Animated.Image source={Character} />
         </TouchableOpacity>
 
         {/* Dialog Modal */}
@@ -127,13 +192,39 @@ export default function ModuleOneScreen() {
           </Modal>
         )}
 
+        <ActionButton
+          style={styles.nextButton}
+          type="PrimaryBlue"
+          title="Next"
+          onPress={() => {}}
+        />
+
         {/* Relative Content */}
         <HeaderProgress
           progressText="2 / 5"
           onBackPress={() => navigation.goBack()}
         />
-        <View></View>
-        <ActionButton type="PrimaryBlue" title="Next" onPress={() => {}} />
+        <View style={{ marginTop: 20 }}>
+          <Heading style={{ color: colors.WhiteText }}>
+            Genesis means...
+          </Heading>
+          <View
+            style={[
+              styles.hiddenWordContainer,
+              {
+                backgroundColor: revealed ? colors.GreenPrimary : "#8ECCDB",
+              },
+            ]}
+          >
+            <TouchableOpacity onPress={handleRevealedPress}>
+              {!revealed ? (
+                <ButtonText color="#689AA6">Tap to reveal!</ButtonText>
+              ) : (
+                <ButtonText color={colors.WhiteText}>New Beginnings</ButtonText>
+              )}
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </>
   );
