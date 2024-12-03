@@ -14,8 +14,8 @@ export const styles = StyleSheet.create({
     left: 0,
   },
   characterImage: {
-    width: 128,
-    height: 128,
+    width: 140,
+    height: 140,
   },
   navButtons: {
     position: "absolute",

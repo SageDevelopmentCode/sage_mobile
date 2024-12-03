@@ -12,32 +12,32 @@ export const styles = StyleSheet.create({
   },
   globeImage: {
     position: "absolute",
-    bottom: "-35%",
+    bottom: "-45%",
     left: 0,
     width: "115%",
     zIndex: -2, // Push the image behind other elements
   },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    position: "relative", // Ensures absolute positioning works within the row
-  },
-  backButton: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  progressWrapper: {
+  characterImage: {
+    width: 200,
+    height: 200,
     position: "absolute",
-    left: "50%",
-    transform: [{ translateX: -50 }], // Center horizontally
+    bottom: "20%", // Move the character higher above the navButtons
+    alignSelf: "center", // Center the image horizontally
   },
-  progressCount: {
-    borderRadius: 20,
-    backgroundColor: colors.DarkSkyBlueBacking,
+  dialogOverlay: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 30,
-    paddingVertical: 6,
+    backgroundColor: "rgba(0, 0, 0, 0)", // Semi-transparent background
+  },
+  dialogBox: {
+    backgroundColor: "#fff",
+    marginHorizontal: 10,
+    padding: 20,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "rgba(159, 228, 244, 0.6)", // Light blue border with transparency
+    borderWidth: 7, // 7px border
   },
 });

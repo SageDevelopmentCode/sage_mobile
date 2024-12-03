@@ -17,6 +17,11 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
     color: colors.BlackText,
   },
+  dialogue: {
+    fontSize: 24,
+    fontWeight: 900,
+    color: colors.BlackText,
+  },
   paragraph: {
     fontSize: 14,
     color: colors.BlackText,

@@ -155,4 +155,31 @@ const Paragraph = ({ style, children, color, ...props }: BaseTextProps) => {
   );
 };
 
-export { Heading, SubHeading, Paragraph, ButtonText, Title };
+const Dialogue = ({ style, children, color, ...props }: BaseTextProps) => {
+  const [fontsLoaded] = useFonts({
+    Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Raleway_700Bold,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
+  return (
+    <Text
+      style={[
+        styles.dialogue,
+        color ? { color } : {}, // Apply color if provided
+        style,
+        { fontFamily: "Nunito_800ExtraBold" },
+      ]}
+      {...props}
+    >
+      {children}
+    </Text>
+  );
+};
+
+export { Heading, SubHeading, Paragraph, ButtonText, Title, Dialogue };
