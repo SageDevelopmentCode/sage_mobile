@@ -37,23 +37,6 @@ export default function ModuleOneScreen() {
   const translateY = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(800)).current; // Start position off-screen
 
-  // const revealStickerWindow = () => {
-  //   if (stickerWindowRevealed) {
-  //     // Close menu
-  //     Animated.timing(slideAnim, {
-  //       toValue: 800, // Move off-screen
-  //       duration: 300,
-  //       useNativeDriver: true,
-  //     }).start(() => setStickerWindowRevealed(false)); // Set visibility to false after animation
-  //   } else {
-  //     setStickerWindowRevealed(true); // Set visibility to true before animation
-  //     Animated.timing(slideAnim, {
-  //       toValue: 0, // Bring into view
-  //       duration: 300,
-  //       useNativeDriver: true,
-  //     }).start();
-  //   }
-  // };
   // Function to start the levitation animation
   const startLevitation = () => {
     animation.current = Animated.loop(
@@ -96,6 +79,10 @@ export default function ModuleOneScreen() {
   }, [dialogVisible]);
 
   const handleRevealedPress = () => {
+    if (revealed) {
+      return;
+    }
+
     setRevealed(true);
 
     setTimeout(() => {
@@ -105,7 +92,7 @@ export default function ModuleOneScreen() {
         duration: 300,
         useNativeDriver: true,
       }).start();
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 1000);
   };
 
   const closeStickerRevealWindow = () => {

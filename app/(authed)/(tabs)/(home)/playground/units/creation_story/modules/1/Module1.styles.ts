@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     borderWidth: 10, // Thickness of the border
     borderColor: colors.LightBlueBacking, // Border color with transparency
     borderStyle: "solid", // Ensures the border is solid (default, but explicit is better)
-    zIndex: 1,
+    zIndex: 5,
     alignItems: "center",
     justifyContent: "center",
   },
