@@ -80,33 +80,49 @@ export default function ModuleOneScreen() {
             onRequestClose={() => setDialogVisible(false)} // Close dialog on Android back button
           >
             <View style={styles.dialogOverlay}>
-              <View style={styles.dialogBox}>
-                <Dialogue style={{ marginBottom: 20, textAlign: "center" }}>
-                  {dialogueChunks[sentenceIndex]} {/* Display current chunk */}
-                </Dialogue>
-                <TouchableOpacity onPress={handleNextSentence}>
-                  <ActionButton
-                    type="PrimaryBlue"
-                    title={
-                      sentenceIndex < dialogueChunks.length - 1
-                        ? "Tap to continue"
-                        : "Got it!"
-                    }
-                    onPress={handleNextSentence} // Show next chunk
-                  />
-                </TouchableOpacity>
+              <TouchableOpacity onPress={handleNextSentence}>
+                <View style={styles.dialogBox}>
+                  <Dialogue style={{ marginBottom: 20, textAlign: "center" }}>
+                    {dialogueChunks[sentenceIndex]}{" "}
+                    {/* Display current chunk */}
+                  </Dialogue>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <TouchableOpacity onPress={handleNextSentence}>
+                      <ActionButton
+                        type={
+                          sentenceIndex < dialogueChunks.length - 1
+                            ? "TransparentBlue"
+                            : "PrimaryBlue"
+                        }
+                        title={
+                          sentenceIndex < dialogueChunks.length - 1
+                            ? "Tap to continue"
+                            : "Got it!"
+                        }
+                        onPress={handleNextSentence} // Show next chunk
+                      />
+                    </TouchableOpacity>
 
-                {/* Repeat Button */}
-                {sentenceIndex === dialogueChunks.length - 1 && (
-                  <TouchableOpacity onPress={handleRepeatDialogue}>
-                    <FontAwesome
-                      name="repeat"
-                      color={colors.GrayPrimary}
-                      size={30}
-                    />
-                  </TouchableOpacity>
-                )}
-              </View>
+                    {/* Repeat Button */}
+                    {sentenceIndex === dialogueChunks.length - 1 && (
+                      <TouchableOpacity onPress={handleRepeatDialogue}>
+                        <FontAwesome
+                          name="repeat"
+                          color={colors.GrayBacking}
+                          size={25}
+                          style={{ marginLeft: 20 }}
+                        />
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                </View>
+              </TouchableOpacity>
             </View>
           </Modal>
         )}

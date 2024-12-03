@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    // marginTop: 25,
     width: "100%",
   },
   BrightGreenButton: {
@@ -35,6 +34,10 @@ export const styles = StyleSheet.create({
     shadowRadius: 0,
     elevation: 4,
   },
+  TransparentButton: {
+    backgroundColor: "transparent",
+    borderWidth: 0,
+  },
   PrimaryPurpleButton: {
     backgroundColor: colors.PurplePrimary,
     shadowColor: colors.PurpleBacking,
@@ -55,6 +58,9 @@ export const styles = StyleSheet.create({
   },
   WhiteText: {
     color: colors.WhiteText,
+  },
+  BlueText: {
+    color: colors.BlueText,
   },
   DarkBrownText: {
     color: "#9E6329",
