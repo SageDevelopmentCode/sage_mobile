@@ -5,7 +5,6 @@ import {
   Easing,
   Image,
   Modal,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -17,7 +16,6 @@ import {
   ButtonText,
   Dialogue,
   Heading,
-  SubHeading,
 } from "@/components/Text/TextComponents";
 import { FontAwesome } from "@/utils/Icons";
 import colors from "@/constants/colors";
@@ -195,6 +193,7 @@ export default function ModuleOneScreen() {
         <ActionButton
           style={styles.nextButton}
           type="PrimaryBlue"
+          disabled={!revealed || !(sentenceIndex >= dialogueChunks.length - 1)}
           title="Next"
           onPress={() => {}}
         />

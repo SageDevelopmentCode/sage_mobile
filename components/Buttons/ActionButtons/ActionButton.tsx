@@ -56,6 +56,9 @@ function ActionButton({
   };
 
   const getTextStyle = () => {
+    if (disabled) {
+      return styles.DisabledText; // Use a specific style for disabled state
+    }
     switch (type) {
       case "BrightGreen":
         return styles.WhiteText;

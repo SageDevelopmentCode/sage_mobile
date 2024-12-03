@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   BrightGreenButton: {
     backgroundColor: colors.BrightGreen,
     shadowColor: colors.BrightGreenBacking,
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: { width: 0, height: 7 },
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 4,
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   LightBrownButton: {
     backgroundColor: colors.LightBrown,
     shadowColor: colors.LightBrownBacking,
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: { width: 0, height: 7 },
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 4,
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
   PrimaryBlueButton: {
     backgroundColor: colors.BluePrimary,
     shadowColor: colors.BluePrimaryBacking,
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: { width: 0, height: 7 },
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 4,
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   PrimaryPurpleButton: {
     backgroundColor: colors.PurplePrimary,
     shadowColor: colors.PurpleBacking,
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: { width: 0, height: 7 },
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 4,
@@ -50,7 +50,16 @@ export const styles = StyleSheet.create({
     backgroundColor: "#DC3545",
   },
   disabled: {
-    backgroundColor: "#E0E0E0",
+    backgroundColor: colors.Disabled,
+    shadowColor: colors.DisabledBacking,
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
+    color: colors.DisabledText,
+  },
+  DisabledText: {
+    color: colors.DisabledText,
   },
   text: {
     fontSize: 20,
