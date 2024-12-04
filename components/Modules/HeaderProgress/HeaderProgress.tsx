@@ -6,6 +6,7 @@ import colors from "@/constants/colors";
 import { styles } from "./HeaderProgress.styles";
 
 type HeaderProgressProps = {
+  backgroundColor?: string;
   progressText: string; // Progress text like "1 / 3"
   onBackPress: () => void; // Callback for back button
 };
@@ -13,6 +14,7 @@ type HeaderProgressProps = {
 export default function HeaderProgress({
   progressText,
   onBackPress,
+  backgroundColor,
 }: HeaderProgressProps) {
   return (
     <View>
@@ -21,7 +23,14 @@ export default function HeaderProgress({
           <Ionicons name="chevron-back" color={colors.WhiteText} size={40} />
         </TouchableOpacity>
         <View style={styles.progressWrapper}>
-          <View style={styles.progressCount}>
+          <View
+            style={[
+              styles.progressCount,
+              {
+                backgroundColor: backgroundColor,
+              },
+            ]}
+          >
             <ButtonText color={colors.WhiteText}>{progressText}</ButtonText>
           </View>
         </View>
