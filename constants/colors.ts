@@ -30,6 +30,7 @@ const colors = {
   DisabledText: "#C8C9C4",
   LightBlue: "#DFEEFF",
   LightBlueBacking: "#C7DDF5",
+  DarkBackground: "#282828",
 } as const;
 
 export type Colors = typeof colors; // Extract the type for the colors object

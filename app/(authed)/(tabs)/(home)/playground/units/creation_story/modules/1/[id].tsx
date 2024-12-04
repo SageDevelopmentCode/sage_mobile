@@ -1,4 +1,4 @@
-import { useLocalSearchParams, useNavigation } from "expo-router";
+import { router, useLocalSearchParams, useNavigation } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, Modal, TouchableOpacity, View } from "react-native";
 import { styles } from "./Module1.styles";
@@ -188,7 +188,13 @@ export default function ModuleOneScreen() {
           type="PrimaryBlue"
           disabled={!revealed || !(sentenceIndex >= dialogueChunks.length - 1)}
           title="Next"
-          onPress={() => {}}
+          onPress={() =>
+            router.push({
+              pathname:
+                "/(authed)/(home)/playground/units/creation_story/modules/1/1.1/[id]",
+              params: { id: "f1jaefwljq" },
+            })
+          }
         />
 
         {/* Relative Content */}
