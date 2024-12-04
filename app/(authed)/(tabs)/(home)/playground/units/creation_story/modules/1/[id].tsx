@@ -65,7 +65,7 @@ export default function ModuleOneScreen() {
         duration: 300,
         useNativeDriver: true,
       }).start();
-    }, 1000);
+    }, 900);
   };
 
   const closeStickerRevealWindow = () => {

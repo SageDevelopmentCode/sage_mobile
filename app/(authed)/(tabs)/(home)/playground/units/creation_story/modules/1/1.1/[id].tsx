@@ -1,19 +1,48 @@
-import { Image, View } from "react-native";
+import { Animated, Image, Text, View } from "react-native";
 import { styles } from "./Module1-1.styles";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
 import { SubHeading } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLevitation } from "@/hooks/useLevitation";
 
 export default function ModuleOneScreen() {
   const { id } = useLocalSearchParams();
   const navigation = useNavigation();
+  const [dustFloating, setDustFloating] = useState(true);
+  const animation = useRef<Animated.CompositeAnimation | null>(null);
+
+  const {
+    translateY: translateYOne,
+    startLevitation: startOne,
+    stopLevitation: stopOne,
+  } = useLevitation();
+  const {
+    translateY: translateYTwo,
+    startLevitation: startTwo,
+    stopLevitation: stopTwo,
+  } = useLevitation(0, -10); // Reverse direction
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
   }, [navigation]);
+
+  useEffect(() => {
+    if (dustFloating) {
+      startOne();
+      startTwo();
+    } else {
+      stopOne();
+      stopTwo();
+    }
+
+    return () => {
+      stopOne();
+      stopTwo();
+    };
+  }, [dustFloating]);
 
   return (
     <>
@@ -24,25 +53,34 @@ export default function ModuleOneScreen() {
         />
         <View style={styles.centeredTextWrapper}>
           <SubHeading style={{ textAlign: "center" }} color={colors.WhiteText}>
-            {/* In Genesis, <span style={{ color: colors.GreenText }}>God</span>{" "}
+            In Genesis, <Text style={{ color: colors.GreenPrimary }}>God</Text>{" "}
             made everything from{" "}
-            <span style={{ color: colors.PurplePrimary }}>nothing</span>{" "} */}
-            In Genesis, God made everything from nothing
+            <Text style={{ color: colors.PurplePrimary }}>nothing</Text>{" "}
+            {/* In Genesis, God made everything from nothing */}
           </SubHeading>
+          <ActionButton
+            style={{ marginTop: 20 }}
+            type="PrimaryBlue"
+            title="Let there be light"
+            onPress={() => {}}
+          />
         </View>
-        <ActionButton
-          style={{ marginTop: 20 }}
-          type="PrimaryBlue"
-          title="Let there be light"
-          onPress={() => {}}
-        />
-        <Image
+
+        <Animated.Image
           source={require("../../../assets/Dust.png")} // Replace with your image path
-          style={styles.dustImageOne}
+          style={[
+            styles.dustImageOne,
+            {
+              transform: [{ translateY: translateYOne }], // Apply the animation
+            },
+          ]}
         />
-        <Image
+        <Animated.Image
           source={require("../../../assets/Dust.png")} // Replace with your image path
-          style={styles.dustImageTwo}
+          style={[
+            styles.dustImageTwo,
+            { transform: [{ translateY: translateYTwo }] },
+          ]}
         />
       </View>
     </>
