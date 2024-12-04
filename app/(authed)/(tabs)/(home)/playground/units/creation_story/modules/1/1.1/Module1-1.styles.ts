@@ -31,4 +31,10 @@ export const styles = StyleSheet.create({
     right: 40,
     transform: [{ scaleX: -1 }, { scaleY: -1 }],
   },
+  background: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 8,
+  },
 });

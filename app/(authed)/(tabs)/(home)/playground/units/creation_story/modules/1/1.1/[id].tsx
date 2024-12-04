@@ -1,4 +1,4 @@
-import { Animated, Image, Text, View } from "react-native";
+import { Animated, Image, ImageBackground, Text, View } from "react-native";
 import { styles } from "./Module1-1.styles";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
@@ -12,7 +12,7 @@ export default function ModuleOneScreen() {
   const { id } = useLocalSearchParams();
   const navigation = useNavigation();
   const [dustFloating, setDustFloating] = useState(true);
-  const animation = useRef<Animated.CompositeAnimation | null>(null);
+  const [preScreen, setPreScreen] = useState(true);
 
   const {
     translateY: translateYOne,
@@ -46,44 +46,58 @@ export default function ModuleOneScreen() {
 
   return (
     <>
-      <View style={styles.container}>
-        <HeaderProgress
-          progressText="2 / 5"
-          onBackPress={() => navigation.goBack()}
-          backgroundColor={colors.BluePrimaryBacking}
-        />
-        <View style={styles.centeredTextWrapper}>
-          <SubHeading style={{ textAlign: "center" }} color={colors.WhiteText}>
-            In Genesis, <Text style={{ color: colors.GreenPrimary }}>God</Text>{" "}
-            made everything from{" "}
-            <Text style={{ color: colors.PurplePrimary }}>nothing</Text>{" "}
-            {/* In Genesis, God made everything from nothing */}
-          </SubHeading>
-          <ActionButton
-            style={{ marginTop: 20 }}
-            type="PrimaryBlue"
-            title="Let there be light"
-            onPress={() => {}}
+      {preScreen ? (
+        <View style={styles.container}>
+          <HeaderProgress
+            progressText="3 / 5"
+            onBackPress={() => navigation.goBack()}
+            backgroundColor={colors.BluePrimaryBacking}
+          />
+          <View style={styles.centeredTextWrapper}>
+            <SubHeading
+              style={{ textAlign: "center" }}
+              color={colors.WhiteText}
+            >
+              In Genesis,{" "}
+              <Text style={{ color: colors.GreenPrimary }}>God</Text> made
+              everything from{" "}
+              <Text style={{ color: colors.PurplePrimary }}>nothing</Text>{" "}
+              {/* In Genesis, God made everything from nothing */}
+            </SubHeading>
+            <ActionButton
+              style={{ marginTop: 20 }}
+              type="PrimaryBlue"
+              title="Let there be light"
+              onPress={() => {
+                setPreScreen(false);
+              }}
+            />
+          </View>
+
+          <Animated.Image
+            source={require("../../../assets/Dust.png")} // Replace with your image path
+            style={[
+              styles.dustImageOne,
+              {
+                transform: [{ translateY: translateYOne }], // Apply the animation
+              },
+            ]}
+          />
+          <Animated.Image
+            source={require("../../../assets/Dust.png")} // Replace with your image path
+            style={[
+              styles.dustImageTwo,
+              { transform: [{ translateY: translateYTwo }] },
+            ]}
           />
         </View>
-
-        <Animated.Image
-          source={require("../../../assets/Dust.png")} // Replace with your image path
-          style={[
-            styles.dustImageOne,
-            {
-              transform: [{ translateY: translateYOne }], // Apply the animation
-            },
-          ]}
-        />
-        <Animated.Image
-          source={require("../../../assets/Dust.png")} // Replace with your image path
-          style={[
-            styles.dustImageTwo,
-            { transform: [{ translateY: translateYTwo }] },
-          ]}
-        />
-      </View>
+      ) : (
+        <ImageBackground
+          style={styles.background}
+          source={require("../../../assets/1.1/Background1-1.png")}
+          resizeMode="cover"
+        ></ImageBackground>
+      )}
     </>
   );
 }
