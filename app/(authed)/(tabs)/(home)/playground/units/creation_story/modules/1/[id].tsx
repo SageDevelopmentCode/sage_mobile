@@ -1,13 +1,6 @@
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import {
-  Animated,
-  Easing,
-  Image,
-  Modal,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Animated, Image, Modal, TouchableOpacity, View } from "react-native";
 import { styles } from "./Module1.styles";
 import Character from "../../../../../assets/CharacterImage.png";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
@@ -22,6 +15,7 @@ import colors from "@/constants/colors";
 import Overlay from "@/components/Overlay/Overlay";
 import UnlockedStickerWindow from "@/components/Sticker/UnlockedStickerWindow";
 import { splitDialogue } from "@/utils/Dialogue/splitDialogue";
+import { useLevitation } from "@/hooks/useLevitation";
 
 type DialogueChunk = string[];
 
@@ -34,36 +28,11 @@ export default function ModuleOneScreen() {
   const [stickerWindowRevealed, setStickerWindowRevealed] = useState(false);
   const animation = useRef<Animated.CompositeAnimation | null>(null);
 
-  const translateY = useRef(new Animated.Value(0)).current;
+  const navigation = useNavigation();
+
   const slideAnim = useRef(new Animated.Value(800)).current; // Start position off-screen
 
-  // Function to start the levitation animation
-  const startLevitation = () => {
-    animation.current = Animated.loop(
-      Animated.sequence([
-        Animated.timing(translateY, {
-          toValue: -10, // Move up by 10px
-          duration: 1000, // 1 second
-          easing: Easing.inOut(Easing.ease),
-          useNativeDriver: true,
-        }),
-        Animated.timing(translateY, {
-          toValue: 0, // Return to original position
-          duration: 1000, // 1 second
-          easing: Easing.inOut(Easing.ease),
-          useNativeDriver: true,
-        }),
-      ])
-    );
-
-    animation.current.start();
-  };
-
-  // Function to stop the levitation animation
-  const stopLevitation = () => {
-    animation.current?.stop();
-    translateY.setValue(0); // Reset position
-  };
+  const { translateY, startLevitation, stopLevitation } = useLevitation();
 
   // Start animation on component mount
   useEffect(() => {
@@ -77,6 +46,10 @@ export default function ModuleOneScreen() {
       animation.current?.stop(); // Cleanup on unmount
     };
   }, [dialogVisible]);
+
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);
 
   const handleRevealedPress = () => {
     if (revealed) {
@@ -103,8 +76,6 @@ export default function ModuleOneScreen() {
     }).start(() => setStickerWindowRevealed(false)); // Set visibility to false after animation
   };
 
-  const navigation = useNavigation();
-
   // Sample long dialogue (this can be dynamic for future dialogues)
   const longDialogue: string =
     "Hey there, friend! Did you know that the very first book of the Bible is called Genesis? It's all about how God created everything around us! Let’s dive in and learn more about it together!";
@@ -124,10 +95,6 @@ export default function ModuleOneScreen() {
     setSentenceIndex(0); // Reset to the first chunk
     setDialogVisible(true); // Show dialog again
   };
-
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, [navigation]);
 
   return (
     <>
