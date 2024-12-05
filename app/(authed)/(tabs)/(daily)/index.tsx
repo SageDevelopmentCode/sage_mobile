@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { useRouter } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 
 export default function DailyScreen() {
+  const navigation = useNavigation();
+
   const router = useRouter();
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Current Screen</Text>
+      <Text style={styles.title}>Sage Development Hub</Text>
 
       {/* Navigate to Home */}
       <TouchableOpacity
         style={styles.button}
         onPress={() => router.push("/(authed)/(tabs)/(home)")}
       >
-        <Text style={styles.buttonText}>Go to Home</Text>
+        <Text style={styles.buttonText}>Production Home</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/(authed)/(tabs)/(home)")}
+      >
+        <Text style={styles.buttonText}>Development Playground</Text>
       </TouchableOpacity>
     </View>
   );
@@ -36,6 +47,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 8,
+    marginVertical: 10,
   },
   buttonText: {
     color: "white",
