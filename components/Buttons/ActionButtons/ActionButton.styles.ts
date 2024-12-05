@@ -54,6 +54,14 @@ export const styles = StyleSheet.create({
     shadowRadius: 0,
     elevation: 4,
   },
+  PrimaryGrayButton: {
+    backgroundColor: colors.GrayButtonPrimary,
+    shadowColor: colors.GrayButtonBacking,
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
+  },
   dangerButton: {
     backgroundColor: "#DC3545",
   },

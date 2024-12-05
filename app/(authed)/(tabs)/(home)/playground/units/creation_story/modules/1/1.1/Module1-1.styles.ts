@@ -37,4 +37,38 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 8,
   },
+  sun: {
+    width: 100,
+    height: 100,
+    position: "absolute",
+    top: 10,
+    alignSelf: "center",
+  },
+  bottomWrapper: {
+    position: "absolute",
+    bottom: "9%",
+    alignSelf: "center",
+  },
+  characterImage: {
+    width: 140,
+    height: 140,
+    position: "absolute",
+    top: "40%",
+    right: "40%",
+  },
+  giraffeImage: {
+    width: 120,
+    height: 120,
+    position: "absolute",
+    top: "30%",
+    right: "-2%",
+    transform: [{ scaleX: -1 }],
+  },
+  dolphinImage: {
+    width: 100,
+    height: 100,
+    position: "absolute",
+    bottom: "30%",
+    right: "10%",
+  },
 });

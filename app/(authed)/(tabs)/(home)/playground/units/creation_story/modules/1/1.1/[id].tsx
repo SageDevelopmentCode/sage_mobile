@@ -96,7 +96,63 @@ export default function ModuleOneScreen() {
           style={styles.background}
           source={require("../../../assets/1.1/Background1-1.png")}
           resizeMode="cover"
-        ></ImageBackground>
+        >
+          {/* Absolute Content */}
+          <Image
+            source={require("../../../assets/1.1/Sun.png")} // Replace with your image path
+            style={styles.sun}
+          />
+
+          <Image
+            source={require("../../../../../../assets/CharacterImage.png")} // Replace with your image path
+            style={styles.characterImage}
+          />
+
+          <Image
+            source={require("../../../assets/1.1/Giraffe.png")} // Replace with your image path
+            style={styles.giraffeImage}
+          />
+
+          <Image
+            source={require("../../../assets/1.1/Dolphin.png")} // Replace with your image path
+            style={styles.dolphinImage}
+          />
+
+          <View style={styles.bottomWrapper}>
+            <SubHeading
+              style={{ textAlign: "center" }}
+              color={colors.WhiteText}
+            >
+              by His Word.
+            </SubHeading>
+            <ActionButton
+              style={{ marginTop: 40 }}
+              type="PrimaryGreen"
+              title="nothing"
+              onPress={() => {
+                setPreScreen(true);
+              }}
+            />
+          </View>
+
+          {/* Relative Content */}
+          <View style={styles.centeredTextWrapper}>
+            <SubHeading
+              style={{ textAlign: "center" }}
+              color={colors.WhiteText}
+            >
+              God made everything from
+            </SubHeading>
+            <ActionButton
+              style={{ marginTop: 20 }}
+              type="PrimaryGray"
+              title="nothing"
+              onPress={() => {
+                setPreScreen(true);
+              }}
+            />
+          </View>
+        </ImageBackground>
       )}
     </>
   );
