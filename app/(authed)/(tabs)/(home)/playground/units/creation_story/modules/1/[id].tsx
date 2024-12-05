@@ -201,6 +201,7 @@ export default function ModuleOneScreen() {
         <HeaderProgress
           progressText="2 / 5"
           onBackPress={() => navigation.goBack()}
+          backgroundColor={colors.DarkSkyBlueBacking}
         />
         <View style={{ marginTop: 20 }}>
           <Heading style={{ color: colors.WhiteText }}>

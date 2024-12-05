@@ -1,8 +1,20 @@
-import { Animated, Image, ImageBackground, Text, View } from "react-native";
+import {
+  Animated,
+  Image,
+  ImageBackground,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { styles } from "./Module1-1.styles";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
-import { SubHeading } from "@/components/Text/TextComponents";
+import {
+  ButtonText,
+  Paragraph,
+  SubHeading,
+} from "@/components/Text/TextComponents";
+import { Ionicons } from "@/utils/Icons";
 import colors from "@/constants/colors";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 import { useEffect, useRef, useState } from "react";
@@ -98,6 +110,23 @@ export default function ModuleOneScreen() {
           resizeMode="cover"
         >
           {/* Absolute Content */}
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Ionicons
+                name="chevron-back"
+                color={colors.WhiteText}
+                size={40}
+              />
+            </TouchableOpacity>
+            <View style={styles.progressWrapper}>
+              <View style={[styles.progressCount]}>
+                <ButtonText color={colors.WhiteText}>3 / 5</ButtonText>
+              </View>
+            </View>
+          </View>
           <Image
             source={require("../../../assets/1.1/Sun.png")} // Replace with your image path
             style={styles.sun}
@@ -114,39 +143,43 @@ export default function ModuleOneScreen() {
           />
 
           <Image
+            source={require("../../../assets/1.1/Elephant.png")} // Replace with your image path
+            style={styles.elephantImage}
+          />
+
+          <Image
             source={require("../../../assets/1.1/Dolphin.png")} // Replace with your image path
             style={styles.dolphinImage}
           />
 
-          <View style={styles.bottomWrapper}>
-            <SubHeading
+          <View style={styles.centeredWrapper}>
+            <ButtonText
               style={{ textAlign: "center" }}
               color={colors.WhiteText}
             >
-              by His Word.
-            </SubHeading>
+              God made everything from
+            </ButtonText>
             <ActionButton
-              style={{ marginTop: 40 }}
-              type="PrimaryGreen"
-              title="nothing"
+              style={{ marginTop: 10 }}
+              type="PrimaryGray"
+              title="Nothing"
               onPress={() => {
                 setPreScreen(true);
               }}
             />
           </View>
 
-          {/* Relative Content */}
-          <View style={styles.centeredTextWrapper}>
-            <SubHeading
+          <View style={styles.bottomWrapper}>
+            <ButtonText
               style={{ textAlign: "center" }}
               color={colors.WhiteText}
             >
-              God made everything from
-            </SubHeading>
+              by His Word.
+            </ButtonText>
             <ActionButton
-              style={{ marginTop: 20 }}
-              type="PrimaryGray"
-              title="nothing"
+              style={{ marginTop: 25 }}
+              type="BrightGreen"
+              title="Next"
               onPress={() => {
                 setPreScreen(true);
               }}
