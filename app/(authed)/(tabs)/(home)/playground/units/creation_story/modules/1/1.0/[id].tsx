@@ -2,7 +2,7 @@ import { router, useLocalSearchParams, useNavigation } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, Modal, TouchableOpacity, View } from "react-native";
 import { styles } from "./Module1.styles";
-import Character from "../../../../../assets/CharacterImage.png";
+import Character from "../../../../../../assets/CharacterImage.png";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 import {
@@ -101,7 +101,7 @@ export default function ModuleOneScreen() {
       <View style={styles.container}>
         {/* Absolute Content */}
         <Image
-          source={require("../../assets/Globe.png")} // Replace with your image path
+          source={require("../../../assets/Globe.png")} // Replace with your image path
           style={styles.globeImage}
         />
         <TouchableOpacity
@@ -119,7 +119,7 @@ export default function ModuleOneScreen() {
         {/* Sticker Window */}
         {stickerWindowRevealed && (
           <UnlockedStickerWindow
-            imageSource={require("../../assets/PlantSticker.png")}
+            imageSource={require("../../../assets/PlantSticker.png")}
             slideAnim={slideAnim}
             closeStickerRevealWindow={closeStickerRevealWindow}
           />

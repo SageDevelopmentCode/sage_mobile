@@ -77,7 +77,13 @@ export default function ModuleOnePointOneScreen() {
         <View style={styles.row}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}
+            onPress={() =>
+              router.push({
+                pathname:
+                  "/(authed)/(home)/playground/units/creation_story/modules/1/1.0/[id]",
+                params: { id: "521g13245" },
+              })
+            }
           >
             <Ionicons name="chevron-back" color={colors.WhiteText} size={40} />
           </TouchableOpacity>

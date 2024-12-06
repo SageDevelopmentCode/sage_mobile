@@ -40,7 +40,7 @@ export default function IntroScreen() {
           onPress={() =>
             router.push({
               pathname:
-                "/(authed)/(home)/playground/units/creation_story/modules/1/[id]",
+                "/(authed)/(home)/playground/units/creation_story/modules/1/1.0/[id]",
               params: { id: "521g13245" },
             })
           }

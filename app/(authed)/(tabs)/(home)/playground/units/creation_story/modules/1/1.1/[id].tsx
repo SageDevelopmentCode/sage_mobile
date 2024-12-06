@@ -47,7 +47,13 @@ export default function ModuleOneScreen() {
     <View style={styles.container}>
       <HeaderProgress
         progressText="3 / 5"
-        onBackPress={() => navigation.goBack()}
+        onBackPress={() =>
+          router.push({
+            pathname:
+              "/(authed)/(home)/playground/units/creation_story/modules/1/1.0/[id]",
+            params: { id: "521g13245" },
+          })
+        }
         backgroundColor={colors.BluePrimaryBacking}
       />
       <View style={styles.centeredTextWrapper}>
