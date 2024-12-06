@@ -26,6 +26,41 @@ export default function ModuleOneScreen() {
   const [dustFloating, setDustFloating] = useState(true);
   const [preScreen, setPreScreen] = useState(true);
 
+  const [direction, setDirection] = useState(Math.random() < 0.5 ? -1 : 1); // 1 for right, -1 for left
+  const [elephantDirection, setElephantDirection] = useState(1); // 1 for right, -1 for left
+  const giraffePosition = useRef(new Animated.Value(0)).current; // Controls horizontal position
+  const elephantPosition = useRef(new Animated.Value(0)).current; // Controls horizontal position
+
+  useEffect(() => {
+    const animateGiraffe = () => {
+      const randomDistance = Math.floor(Math.random() * (40 - 20 + 1)) + 20; // Random value between 20 and 40
+      Animated.timing(giraffePosition, {
+        toValue: direction === 1 ? randomDistance : -randomDistance, // Adjust distance as needed
+        duration: 10000, // Adjust duration for the walking speed
+        useNativeDriver: true,
+      }).start(() => {
+        setDirection((prevDirection) => -prevDirection); // Reverse direction
+      });
+    };
+
+    animateGiraffe();
+  }, [direction, giraffePosition]);
+
+  useEffect(() => {
+    const animateElephant = () => {
+      const randomDistance = Math.floor(Math.random() * (40 - 20 + 1)) + 20; // Random value between 20 and 40
+      Animated.timing(elephantPosition, {
+        toValue: elephantDirection === 1 ? randomDistance : -randomDistance, // Adjust distance as needed
+        duration: 10000, // Adjust duration for the walking speed
+        useNativeDriver: true,
+      }).start(() => {
+        setElephantDirection((prevDirection) => -prevDirection); // Reverse direction
+      });
+    };
+
+    animateElephant();
+  }, [elephantDirection, elephantPosition]);
+
   const {
     translateY: translateYOne,
     startLevitation: startOne,
@@ -137,14 +172,34 @@ export default function ModuleOneScreen() {
             style={styles.characterImage}
           />
 
-          <Image
+          {/* <Image
             source={require("../../../assets/1.1/Giraffe.png")} // Replace with your image path
             style={styles.giraffeImage}
+          /> */}
+          <Animated.Image
+            source={require("../../../assets/1.1/Giraffe.png")}
+            style={[
+              styles.giraffeImage,
+              {
+                transform: [
+                  { translateX: giraffePosition }, // Horizontal movement
+                  { scaleX: direction }, // Flip image based on direction
+                ],
+              },
+            ]}
           />
 
-          <Image
+          <Animated.Image
             source={require("../../../assets/1.1/Elephant.png")} // Replace with your image path
-            style={styles.elephantImage}
+            style={[
+              styles.elephantImage,
+              {
+                transform: [
+                  { translateX: elephantPosition }, // Horizontal movement
+                  { scaleX: elephantDirection }, // Flip image based on direction
+                ],
+              },
+            ]}
           />
 
           <Image

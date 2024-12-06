@@ -83,8 +83,8 @@ export const styles = StyleSheet.create({
     height: 120,
     position: "absolute",
     top: "30%",
-    right: "-2%",
-    transform: [{ scaleX: -1 }],
+    right: "1%",
+    // transform: [{ scaleX: -1 }],
   },
   dolphinImage: {
     width: 100,
