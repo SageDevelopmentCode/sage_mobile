@@ -160,7 +160,13 @@ export default function ModuleOnePointOneScreen() {
             style={{ marginTop: 25 }}
             type="BrightGreen"
             title="Next"
-            onPress={() => {}}
+            onPress={() =>
+              router.push({
+                pathname:
+                  "/(authed)/(home)/playground/units/creation_story/modules/1/1.2/[id]",
+                params: { id: "onepointtwo" },
+              })
+            }
           />
         </View>
       </ImageBackground>

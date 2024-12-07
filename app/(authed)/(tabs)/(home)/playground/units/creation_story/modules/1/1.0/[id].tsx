@@ -200,7 +200,11 @@ export default function ModuleOneScreen() {
         {/* Relative Content */}
         <HeaderProgress
           progressText="2 / 5"
-          onBackPress={() => navigation.goBack()}
+          onBackPress={() =>
+            router.push(
+              "/(authed)/(home)/playground/units/creation_story/IntroScreen"
+            )
+          }
           backgroundColor={colors.DarkSkyBlueBacking}
         />
         <View style={{ marginTop: 20 }}>

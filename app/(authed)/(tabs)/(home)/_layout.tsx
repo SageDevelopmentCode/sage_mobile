@@ -11,6 +11,7 @@ export default function HomeLayout() {
       <Stack.Screen name="playground/units/creation_story/modules/1/1.0/[id]" />
       <Stack.Screen name="playground/units/creation_story/modules/1/1.1/[id]" />
       <Stack.Screen name="playground/units/creation_story/modules/1/1.1/1.1.2/[id]" />
+      <Stack.Screen name="playground/units/creation_story/modules/1/1.2/[id]" />
     </Stack>
   );
 }
