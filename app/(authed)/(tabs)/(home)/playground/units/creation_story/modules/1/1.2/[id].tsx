@@ -1,5 +1,4 @@
 import {
-  Animated,
   Dimensions,
   ScrollView,
   Text,
@@ -9,7 +8,7 @@ import {
 import { styles } from "./Module1-2.styles";
 import { router, useLocalSearchParams, useNavigation } from "expo-router";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
-import { SubHeading } from "@/components/Text/TextComponents";
+import { Paragraph, SubHeading } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 import { useEffect, useRef, useState } from "react";
@@ -34,7 +33,7 @@ export default function ModuleOneScreen() {
         contentContainerStyle={styles.scrollContainer}
         snapToInterval={ITEM_WIDTH} // Ensures snapping to each item
         decelerationRate="fast"
-        style={{ paddingHorizontal: width * 0.1 }}
+        style={{ paddingHorizontal: width * 0.1, paddingVertical: 20 }}
       >
         {numbers.map((number) => (
           <TouchableOpacity
@@ -65,18 +64,19 @@ export default function ModuleOneScreen() {
   const renderFeedback = () => {
     if (selectedNumber === null) return null;
     return (
-      <Text
-        style={[
-          styles.feedbackText,
-          selectedNumber === correctAnswer
-            ? { color: colors.GreenPrimary }
-            : { color: colors.PrimaryRed },
-        ]}
-      >
-        {selectedNumber === correctAnswer
-          ? "Correct! God took 7 days to create the world."
-          : "Try again!"}
-      </Text>
+      <View style={styles.dialogBox}>
+        <Paragraph
+          color={
+            selectedNumber === correctAnswer
+              ? colors.GreenPrimary
+              : colors.PrimaryRed
+          }
+        >
+          {selectedNumber === correctAnswer
+            ? "Correct! God took 7 days to create the world."
+            : "Try again!"}
+        </Paragraph>
+      </View>
     );
   };
 
@@ -95,7 +95,7 @@ export default function ModuleOneScreen() {
             params: { id: "521g13245" },
           })
         }
-        backgroundColor={colors.BluePrimaryBacking}
+        backgroundColor={colors.DarkSkyBlueBacking}
       />
       <View style={styles.centeredTextWrapper}>
         <SubHeading style={{ textAlign: "center" }} color={colors.WhiteText}>
@@ -108,6 +108,21 @@ export default function ModuleOneScreen() {
           to create the world!
         </SubHeading>
         {renderFeedback()}
+      </View>
+
+      <View style={styles.bottomWrapper}>
+        <ActionButton
+          style={{ marginTop: 25 }}
+          type="PrimaryBlue"
+          title="Next"
+          onPress={() =>
+            router.push({
+              pathname:
+                "/(authed)/(home)/playground/units/creation_story/modules/1/1.2/[id]",
+              params: { id: "onepointtwo" },
+            })
+          }
+        />
       </View>
     </View>
   );
