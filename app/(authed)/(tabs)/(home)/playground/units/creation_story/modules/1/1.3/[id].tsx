@@ -105,15 +105,11 @@ export default function ModuleOneScreen() {
                   >
                     <TouchableOpacity onPress={handleNextSentence}>
                       <ActionButton
-                        type={
-                          sentenceIndex < dialogueChunks.length - 1
-                            ? "TransparentBlue"
-                            : "PrimaryBlue"
-                        }
+                        type="TransparentBlue"
                         title={
                           sentenceIndex < dialogueChunks.length - 1
                             ? "Continue"
-                            : "Start"
+                            : "Tap to Start"
                         }
                         onPress={handleNextSentence} // Show next chunk
                       />
