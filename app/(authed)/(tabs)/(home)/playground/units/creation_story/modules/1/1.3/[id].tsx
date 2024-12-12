@@ -5,15 +5,9 @@ import { styles } from "./Module1-3.styles";
 import Character from "../../../../../../assets/CharacterImage.png";
 import HeaderProgress from "@/components/Modules/HeaderProgress/HeaderProgress";
 import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
-import {
-  ButtonText,
-  Dialogue,
-  Heading,
-} from "@/components/Text/TextComponents";
+import { Dialogue } from "@/components/Text/TextComponents";
 import { FontAwesome } from "@/utils/Icons";
 import colors from "@/constants/colors";
-import Overlay from "@/components/Overlay/Overlay";
-import UnlockedStickerWindow from "@/components/Sticker/UnlockedStickerWindow";
 import { splitDialogue } from "@/utils/Dialogue/splitDialogue";
 import { useLevitation } from "@/hooks/useLevitation";
 
@@ -27,8 +21,6 @@ export default function ModuleOneScreen() {
   const animation = useRef<Animated.CompositeAnimation | null>(null);
 
   const navigation = useNavigation();
-
-  const slideAnim = useRef(new Animated.Value(800)).current; // Start position off-screen
 
   const { translateY, startLevitation, stopLevitation } = useLevitation();
 
@@ -51,7 +43,7 @@ export default function ModuleOneScreen() {
 
   // Sample long dialogue (this can be dynamic for future dialogues)
   const longDialogue: string =
-    "Hey there, friend! Did you know that the very first book of the Bible is called Genesis? It's all about how God created everything around us! Let’s dive in and learn more about it together!";
+    "Good job! Now, use what you've learned to battle the forces of Chaos and Confusion.";
 
   // Break the dialogue into chunks of 5 words for example (this can be adjusted)
   const dialogueChunks: DialogueChunk = splitDialogue(longDialogue, 10);
@@ -100,7 +92,7 @@ export default function ModuleOneScreen() {
             <View style={styles.dialogOverlay}>
               <TouchableOpacity onPress={handleNextSentence}>
                 <View style={styles.dialogBox}>
-                  <Dialogue style={{ marginBottom: 20, textAlign: "center" }}>
+                  <Dialogue style={{ marginBottom: 15, textAlign: "center" }}>
                     {dialogueChunks[sentenceIndex]}{" "}
                     {/* Display current chunk */}
                   </Dialogue>
@@ -120,8 +112,8 @@ export default function ModuleOneScreen() {
                         }
                         title={
                           sentenceIndex < dialogueChunks.length - 1
-                            ? "Tap to continue"
-                            : "Got it!"
+                            ? "Continue"
+                            : "Start"
                         }
                         onPress={handleNextSentence} // Show next chunk
                       />
@@ -148,7 +140,7 @@ export default function ModuleOneScreen() {
         <ActionButton
           style={styles.nextButton}
           type="PrimaryBlue"
-          disabled={!revealed || !(sentenceIndex >= dialogueChunks.length - 1)}
+          disabled={!(sentenceIndex >= dialogueChunks.length - 1)}
           title="Next"
           onPress={() =>
             router.push({

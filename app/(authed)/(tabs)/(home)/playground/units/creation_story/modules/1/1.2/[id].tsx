@@ -114,11 +114,12 @@ export default function ModuleOneScreen() {
         <ActionButton
           style={{ marginTop: 25 }}
           type="PrimaryBlue"
+          disabled={!(selectedNumber === correctAnswer)}
           title="Next"
           onPress={() =>
             router.push({
               pathname:
-                "/(authed)/(home)/playground/units/creation_story/modules/1/1.2/[id]",
+                "/(authed)/(home)/playground/units/creation_story/modules/1/1.3/[id]",
               params: { id: "onepointtwo" },
             })
           }

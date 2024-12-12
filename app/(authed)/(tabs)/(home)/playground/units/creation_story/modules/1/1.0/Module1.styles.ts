@@ -41,8 +41,14 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    borderColor: "rgba(159, 228, 244, 0.6)", // Light blue border with transparency
+    borderColor: "#DADBD6", // Light blue border with transparency
     borderWidth: 7, // 7px border
+    shadowColor: "#83847F",
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
+    minWidth: "90%",
   },
   hiddenWordContainer: {
     width: "100%",
