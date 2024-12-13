@@ -4,6 +4,7 @@ import { Image, View } from "react-native";
 import { styles } from "./CharacterSelect.styles";
 import { Paragraph, SubHeading } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
 
 export default function CharacterSelectScreen() {
   const { id } = useLocalSearchParams();
@@ -40,7 +41,13 @@ export default function CharacterSelectScreen() {
                     styles.statContainer,
                     { backgroundColor: colors.AttackBacking },
                   ]}
-                ></View>
+                >
+                  <Image
+                    source={require("../../assets/Sword.png")} // Replace with your image path
+                    style={styles.weaponIcon}
+                  />
+                  <Paragraph color={colors.WhiteText}>450</Paragraph>
+                </View>
               </View>
               <View>
                 <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
@@ -51,9 +58,27 @@ export default function CharacterSelectScreen() {
                     styles.statContainer,
                     { backgroundColor: colors.DefenseBacking },
                   ]}
-                ></View>
+                >
+                  <Image
+                    source={require("../../assets/Shield.png")} // Replace with your image path
+                    style={styles.weaponIcon}
+                  />
+                  <Paragraph color={colors.WhiteText}>390</Paragraph>
+                </View>
               </View>
             </View>
+            <View>
+              <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
+                Level
+              </Paragraph>
+              <ProgressBar
+                height={15}
+                progress={40}
+                backgroundColor={colors.DarkGreenBacking}
+                progressColor={colors.SkyBluePrimary}
+              />
+            </View>
+            <Paragraph>Tap to View Moves</Paragraph>
           </View>
         </View>
       </View>

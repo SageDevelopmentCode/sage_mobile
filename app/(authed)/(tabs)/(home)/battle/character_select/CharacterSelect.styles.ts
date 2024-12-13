@@ -46,4 +46,9 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
+  weaponIcon: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
+  },
 });
