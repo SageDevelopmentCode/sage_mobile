@@ -29,4 +29,21 @@ export const styles = StyleSheet.create({
     width: 200,
     height: 200,
   },
+  characterCardContainer: {
+    padding: 20,
+    backgroundColor: colors.GreenBacking2,
+    borderRadius: 20,
+    alignItems: "center",
+  },
+  attackAndDefense: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  statContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    borderRadius: 10,
+  },
 });
