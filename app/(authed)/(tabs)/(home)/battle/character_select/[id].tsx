@@ -5,6 +5,7 @@ import { styles } from "./CharacterSelect.styles";
 import { Paragraph, SubHeading } from "@/components/Text/TextComponents";
 import colors from "@/constants/colors";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import ActionButton from "@/components/Buttons/ActionButtons/ActionButton";
 
 export default function CharacterSelectScreen() {
   const { id } = useLocalSearchParams();
@@ -25,10 +26,13 @@ export default function CharacterSelectScreen() {
           />
         </View>
         <View style={styles.bottomSection}>
-          <Image
-            source={require("../../assets/CharacterImage.png")} // Replace with your image path
-            style={styles.characterImage}
-          />
+          <View style={styles.circlePlatform}>
+            <Image
+              source={require("../../assets/CharacterImage.png")} // Replace with your image path
+              style={styles.characterImage}
+            />
+          </View>
+
           <View style={styles.characterCardContainer}>
             <SubHeading
               color={colors.WhiteText}
@@ -92,6 +96,19 @@ export default function CharacterSelectScreen() {
             >
               Tap to View Moves
             </Paragraph>
+          </View>
+          <View style={styles.buttonContainer}>
+            <ActionButton
+              type="PrimaryPurple"
+              title="Choose Different Character"
+              onPress={() => {}}
+            />
+            <ActionButton
+              style={{ marginTop: 20 }}
+              type="PrimaryBlue"
+              title="Select"
+              onPress={() => {}}
+            />
           </View>
         </View>
       </View>

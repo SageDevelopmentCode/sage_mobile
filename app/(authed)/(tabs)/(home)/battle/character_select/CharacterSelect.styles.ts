@@ -8,18 +8,21 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   topSection: {
-    flex: 2,
+    flex: 2.5,
     backgroundColor: colors.DarkSkyBluePrimary,
     position: "relative",
     alignItems: "center",
     width: "100%",
   },
   bottomSection: {
-    flex: 8,
+    flex: 7.5,
     backgroundColor: colors.GreenPrimary,
     position: "relative",
     alignItems: "center",
+    justifyContent: "flex-start",
     width: "100%",
+    padding: 0,
+    paddingHorizontal: "7%",
   },
   sunAndMountains: {
     position: "absolute",
@@ -29,13 +32,27 @@ export const styles = StyleSheet.create({
   characterImage: {
     width: 200,
     height: 200,
+    position: "absolute",
+    bottom: -15,
+    left: "50%",
+    marginLeft: -95,
+  },
+  circlePlatform: {
+    backgroundColor: "#FFF1E1",
+    width: 128,
+    height: 10,
+    position: "relative",
+    marginTop: 80,
+    marginBottom: 20,
+    borderRadius: 50, // Half of the height for a fully elliptical shape
+    alignItems: "center", // Ensures horizontal centering
   },
   characterCardContainer: {
     padding: 20,
     backgroundColor: colors.GreenBacking2,
     borderRadius: 20,
-    // alignItems: "center",
-    width: "90%",
+    margin: 0,
+    width: "100%",
   },
   attackAndDefense: {
     flexDirection: "row",
@@ -54,5 +71,10 @@ export const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: 10,
+  },
+  buttonContainer: {
+    position: "absolute",
+    width: "100%",
+    bottom: 80,
   },
 });
