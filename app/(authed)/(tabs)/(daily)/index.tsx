@@ -23,7 +23,9 @@ export default function DailyScreen() {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push("/(authed)/(tabs)/(home)")}
+        onPress={() =>
+          router.push("/(authed)/(tabs)/(home)/battle/character_select/[id]")
+        }
       >
         <Text style={styles.buttonText}>Development Playground</Text>
       </TouchableOpacity>

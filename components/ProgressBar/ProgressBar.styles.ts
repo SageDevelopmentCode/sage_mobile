@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 20,
     overflow: "hidden",
-    marginTop: 10,
     height: 30,
   },
   progress: {

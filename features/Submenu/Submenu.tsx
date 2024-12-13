@@ -44,7 +44,10 @@ const Submenu = ({ progress, slideAnim }: SubmenuProps) => {
             Playground
           </Heading>
           <View style={{ width: "100%", alignItems: "flex-start" }}>
-            <Paragraph color={colors.WhiteText} style={{ textAlign: "left" }}>
+            <Paragraph
+              color={colors.WhiteText}
+              style={{ textAlign: "left", marginBottom: 10 }}
+            >
               Discovering Faith
             </Paragraph>
             <ProgressBar progress={progress} height={40} />

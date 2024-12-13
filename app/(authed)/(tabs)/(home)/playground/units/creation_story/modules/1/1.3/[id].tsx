@@ -140,8 +140,7 @@ export default function ModuleOneScreen() {
           title="Next"
           onPress={() =>
             router.push({
-              pathname:
-                "/(authed)/(home)/playground/units/creation_story/modules/1/1.1/[id]",
+              pathname: "/(authed)/(home)/battle/character_select/[id]",
               params: { id: "f1jaefwljq" },
             })
           }

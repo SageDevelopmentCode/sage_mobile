@@ -30,9 +30,14 @@ export default function CharacterSelectScreen() {
             style={styles.characterImage}
           />
           <View style={styles.characterCardContainer}>
-            <SubHeading color={colors.WhiteText}>Moses</SubHeading>
+            <SubHeading
+              color={colors.WhiteText}
+              style={{ textAlign: "center" }}
+            >
+              Moses
+            </SubHeading>
             <View style={styles.attackAndDefense}>
-              <View>
+              <View style={{ width: "47%" }}>
                 <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
                   Attack
                 </Paragraph>
@@ -46,10 +51,10 @@ export default function CharacterSelectScreen() {
                     source={require("../../assets/Sword.png")} // Replace with your image path
                     style={styles.weaponIcon}
                   />
-                  <Paragraph color={colors.WhiteText}>450</Paragraph>
+                  <SubHeading color={colors.WhiteText}>450</SubHeading>
                 </View>
               </View>
-              <View>
+              <View style={{ width: "47%" }}>
                 <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
                   Defense
                 </Paragraph>
@@ -63,11 +68,11 @@ export default function CharacterSelectScreen() {
                     source={require("../../assets/Shield.png")} // Replace with your image path
                     style={styles.weaponIcon}
                   />
-                  <Paragraph color={colors.WhiteText}>390</Paragraph>
+                  <SubHeading color={colors.WhiteText}>390</SubHeading>
                 </View>
               </View>
             </View>
-            <View>
+            <View style={{ justifyContent: "flex-start", marginTop: 20 }}>
               <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
                 Level
               </Paragraph>
@@ -78,7 +83,15 @@ export default function CharacterSelectScreen() {
                 progressColor={colors.SkyBluePrimary}
               />
             </View>
-            <Paragraph>Tap to View Moves</Paragraph>
+            <Paragraph
+              style={{
+                textAlign: "center",
+                marginTop: 20,
+                color: colors.WhiteText,
+              }}
+            >
+              Tap to View Moves
+            </Paragraph>
           </View>
         </View>
       </View>
