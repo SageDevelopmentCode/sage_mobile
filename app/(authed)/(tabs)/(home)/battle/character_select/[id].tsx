@@ -46,21 +46,26 @@ export default function CharacterSelectScreen() {
             {isBack ? (
               // Back side of the card (Moves)
               <View style={{ alignItems: "center" }}>
-                <SubHeading
-                  color={colors.WhiteText}
-                  style={{ textAlign: "center" }}
+                <TouchableOpacity style={styles.moveButton} onPress={() => {}}>
+                  <Paragraph color={colors.BlackText}>Move 1</Paragraph>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.moveButton} onPress={() => {}}>
+                  <Paragraph color={colors.BlackText}>Move 1</Paragraph>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.moveButton} onPress={() => {}}>
+                  <Paragraph color={colors.BlackText}>Move 1</Paragraph>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.moveButton} onPress={() => {}}>
+                  <Paragraph color={colors.BlackText}>Move 1</Paragraph>
+                </TouchableOpacity>
+                <Paragraph
+                  style={{
+                    textAlign: "center",
+                    marginTop: 10,
+                    color: colors.WhiteText,
+                  }}
                 >
-                  Moves
-                </SubHeading>
-                {/* Example moves list */}
-                <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
-                  1. Sword Slash
-                </Paragraph>
-                <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
-                  2. Shield Bash
-                </Paragraph>
-                <Paragraph style={{ marginBottom: 5 }} color={colors.WhiteText}>
-                  3. Fireball
+                  Tap to View Stats
                 </Paragraph>
               </View>
             ) : (

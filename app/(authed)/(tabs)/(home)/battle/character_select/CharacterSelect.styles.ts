@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     width: 128,
     height: 10,
     position: "relative",
-    marginTop: 80,
+    marginTop: 60,
     marginBottom: 20,
     borderRadius: 50, // Half of the height for a fully elliptical shape
     alignItems: "center", // Ensures horizontal centering
@@ -76,5 +76,20 @@ export const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     bottom: 80,
+  },
+  moveButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    backgroundColor: "#FFFBF8",
+    shadowColor: "#D9D9D9",
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 2,
+    marginBottom: 20,
   },
 });
